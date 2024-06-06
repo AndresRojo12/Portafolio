@@ -31,7 +31,7 @@
     </nav>
 
     <section class="section1">
-      <h1>HOLA MI NOMBRE ES ANDRESsss</h1>
+      <h1>HOLA MI NOMBRE ES ANDRES</h1>
       <h2>Desarrollo aplicaciones web</h2>
       <P>
         Soy desarrollador de software, desde que me adentré en el mundo de la
