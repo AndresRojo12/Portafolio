@@ -16,7 +16,7 @@
             margin-top: 2%;
             margin-left: 1%;
           "
-          src="../../public/favicon.ico"
+          src="../../util/logo.png"
           alt=""
         />
         <div style="display: flex; gap: 10px; margin-left: auto">
