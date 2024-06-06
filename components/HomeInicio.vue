@@ -28,25 +28,6 @@
           <v-btn variant="text" @click="proyect">Proyectos</v-btn>
         </div>
       </div>
-
-      <!-- <v-toolbar color="black">
-        <template v-slot:prepend>
-          <div >Andres
-          </div>
-        </template>
-        <v-toolbar-items style="margin-right: 5%;">
-          <v-btn
-          variant="text"
-          :class="{ active: activeSection === 'presentation' }"
-          @click="setActiveSection('presentation')"
-          >Presentación</v-btn
-          >
-          
-          <v-btn variant="text" @click="service">Servicios</v-btn>
-          
-          <v-btn variant="text" @click="proyect">Proyectos</v-btn>
-        </v-toolbar-items>
-      </v-toolbar> -->
     </nav>
 
     <section class="section1">
