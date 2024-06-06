@@ -17,7 +17,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       GIT_HUB: process.env.GIT_HUB,
-      INSTAGRAM: process.env.INSTAGRAM,
+      LINKEDIN: process.env.LINKEDIN,
+      CORREO: process.env.CORREO
     }
   }
 })

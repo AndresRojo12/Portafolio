@@ -20,6 +20,7 @@
     "vuetify": "^3.6.7"
   },
   "devDependencies": {
-    "sass": "^1.77.2"
+    "sass": "^1.77.2",
+    "vue-i18n": "^9.13.1"
   }
 }

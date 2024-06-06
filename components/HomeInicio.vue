@@ -1,11 +1,11 @@
 <template>
   <v-app class="container">
     <nav class="navegation">
-      <v-toolbar color="black" style="margin-left: 2%">
+      <v-toolbar color="black">
         <template v-slot:prepend>
           <div class="text-h5">Andres Rojo</div>
         </template>
-        <v-toolbar-items style="margin-right: 2%">
+        <v-toolbar-items style="margin-right: 5%">
           <v-btn
             variant="text"
             :class="{ active: activeSection === 'presentation' }"
@@ -15,16 +15,20 @@
 
           <v-btn variant="text" @click="service">Servicios</v-btn>
 
-          <v-btn variant="text">Proyectos</v-btn>
+          <v-btn variant="text" @click="proyect">Proyectos</v-btn>
         </v-toolbar-items>
       </v-toolbar>
     </nav>
+
+    <hr class="separator" />
+
 
     <section class="section1">
       <h1>HOLA MI NOMBRE ES ANDRES</h1>
       <h2>Desarrollo aplicaciones web</h2>
       <P
-        >Soy desarrollador de software, desde que me adentré en el mundo de la
+        >
+        Soy desarrollador de software, desde que me adentré en el mundo de la
         programación <br />
         he estado obsesionado con encontrar soluciones creativas a problemas
         complejos y crear productos tecnológicos <br />
@@ -76,9 +80,9 @@ const router = useRouter();
 
 
 const icons = ref([
-  {name: "mdi-github", url: CONFIG.GIT_HUB},
-  {name: "mdi-gmail", url: CONFIG.GIT_HUB},
-  {name:"mdi-instagram", url: CONFIG.INSTAGRAM},
+{ name: "mdi-github", url: CONFIG.GIT_HUB },
+{ name: "mdi-gmail", url: `mailto:${CONFIG.CORREO}` },
+{ name: "mdi-linkedin", url: CONFIG.LINKEDIN }
 ]);
 
 const activeSection = ref("presentation");
@@ -90,6 +94,10 @@ const setActiveSection = (section) => {
 const service = () => {
   router.push('/servicio/servicio')
 }
+
+const proyect= () => {
+  router.push('/proyectos/proyecto')
+}
 </script>
 
 <style>
@@ -99,7 +107,7 @@ body, .container, .d-flex flex-column {
 .section1 {
   background-color: #000;
   margin-top: 5%;
-  margin-left: 2%;
+  margin-left: 5%;
 }
 .section1 h1 {
   color: aqua;
@@ -121,7 +129,7 @@ h2 {
 }
 .section2 {
   background: color #000;
-  margin-left: 2%;
+  margin-left: 5%;
   margin-top: 5%;
 }
 .section2 h3 {
@@ -143,7 +151,7 @@ h2 {
   display: flex;
   margin: 0 10px;
   font-size: 100px;
-  margin-right: 15%;
+  margin-left: 5%;
 }
 
 .node,
