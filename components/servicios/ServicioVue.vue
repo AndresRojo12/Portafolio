@@ -1,7 +1,32 @@
 <template>
   <v-app class="container">
     <nav class="navegation">
-      <v-toolbar color="black">
+      <div
+        style="
+          color: white;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        "
+      >
+        <img
+          style="border-radius: 50%; width: 300px;
+          margin-top: 2%;
+          margin-left: 1%;"
+          src="../../public/favicon.ico"
+          alt=""
+        />
+        <div style="display: flex; gap: 10px; margin-left: auto">
+          <v-btn @click="home" variant="text">Presentación</v-btn>
+
+          <v-btn variant="text"
+          :class="{ active: activeSection === 'service' }"
+          @click="setActiveSection('service')"
+          >Servicios</v-btn>
+          <v-btn variant="text" @click="proyect">Proyectos</v-btn>
+        </div>
+      </div>
+      <!-- <v-toolbar color="black">
         <template v-slot:prepend>
           <div class="text-h5">Andres Rojo</div>
         </template>
@@ -17,11 +42,10 @@
 
           <v-btn variant="text" @click="proyect">Proyectos</v-btn>
         </v-toolbar-items>
-      </v-toolbar>
+      </v-toolbar> -->
     </nav>
 
-    <hr class="separator" />
-
+   
     <section class="section1">
       <h1>SERVICIOS</h1>
 

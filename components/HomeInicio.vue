@@ -1,33 +1,58 @@
 <template>
   <v-app class="container">
     <nav class="navegation">
-      <v-toolbar color="black">
-        <template v-slot:prepend>
-          <div class="text-h5">Andres Rojo</div>
-        </template>
-        <v-toolbar-items style="margin-right: 5%">
+      <div
+        style="
+          color: white;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        "
+      >
+        <img
+          style="border-radius: 50%; width: 300px;
+          margin-top: 2%;
+          margin-left: 1%;"
+          src="../public/favicon.ico"
+          alt=""
+        />
+        <div style="display: flex; gap: 10px; margin-left: auto">
           <v-btn
             variant="text"
             :class="{ active: activeSection === 'presentation' }"
             @click="setActiveSection('presentation')"
-            >Presentación</v-btn
           >
-
+            Presentación
+          </v-btn>
           <v-btn variant="text" @click="service">Servicios</v-btn>
+          <v-btn variant="text" @click="proyect">Proyectos</v-btn>
+        </div>
+      </div>
 
+      <!-- <v-toolbar color="black">
+        <template v-slot:prepend>
+          <div >Andres
+          </div>
+        </template>
+        <v-toolbar-items style="margin-right: 5%;">
+          <v-btn
+          variant="text"
+          :class="{ active: activeSection === 'presentation' }"
+          @click="setActiveSection('presentation')"
+          >Presentación</v-btn
+          >
+          
+          <v-btn variant="text" @click="service">Servicios</v-btn>
+          
           <v-btn variant="text" @click="proyect">Proyectos</v-btn>
         </v-toolbar-items>
-      </v-toolbar>
+      </v-toolbar> -->
     </nav>
-
-    <hr class="separator" />
-
 
     <section class="section1">
       <h1>HOLA MI NOMBRE ES ANDRES</h1>
       <h2>Desarrollo aplicaciones web</h2>
-      <P
-        >
+      <P>
         Soy desarrollador de software, desde que me adentré en el mundo de la
         programación <br />
         he estado obsesionado con encontrar soluciones creativas a problemas
@@ -51,11 +76,19 @@
     </section>
     <hr class="separator" />
 
-    <v-footer class="d-flex flex-column" style="background-color: black;">
-      <div style="background-color:rgb(151, 157, 142) ;" class="bg-black d-flex w-100 align-center px-4">
+    <v-footer class="d-flex flex-column" style="background-color: black">
+      <div
+        style="background-color: rgb(151, 157, 142)"
+        class="bg-black d-flex w-100 align-center px-4"
+      >
         <strong>Contacto</strong>
         <v-spacer></v-spacer>
-        <a v-for="icon in icons" :key="icon.name" :href="icon.url" target="_blank">
+        <a
+          v-for="icon in icons"
+          :key="icon.name"
+          :href="icon.url"
+          target="_blank"
+        >
           <v-btn
             :icon="icon.name"
             class="bg-black mx-4"
@@ -74,15 +107,14 @@
 
 <script setup>
 import { ref } from "vue";
-import { useRuntimeConfig } from '#app';
+import { useRuntimeConfig } from "#app";
 const CONFIG = useRuntimeConfig().public;
 const router = useRouter();
 
-
 const icons = ref([
-{ name: "mdi-github", url: CONFIG.GIT_HUB },
-{ name: "mdi-gmail", url: `mailto:${CONFIG.CORREO}` },
-{ name: "mdi-linkedin", url: CONFIG.LINKEDIN }
+  { name: "mdi-github", url: CONFIG.GIT_HUB },
+  { name: "mdi-gmail", url: `mailto:${CONFIG.CORREO}` },
+  { name: "mdi-linkedin", url: CONFIG.LINKEDIN },
 ]);
 
 const activeSection = ref("presentation");
@@ -92,16 +124,18 @@ const setActiveSection = (section) => {
 };
 
 const service = () => {
-  router.push('/servicio/servicio')
-}
+  router.push("/servicio/servicio");
+};
 
-const proyect= () => {
-  router.push('/proyectos/proyecto')
-}
+const proyect = () => {
+  router.push("/proyectos/proyecto");
+};
 </script>
 
-<style>
-body, .container, .d-flex flex-column {
+<style scoped>
+body,
+.container,
+.d-flex flex-column {
   background-color: #000;
 }
 .section1 {
@@ -111,6 +145,9 @@ body, .container, .d-flex flex-column {
 }
 .section1 h1 {
   color: aqua;
+  margin-top: 2%;
+  margin-left: 2%;
+  font-size: 200%;
 }
 .section1 p,
 h1,

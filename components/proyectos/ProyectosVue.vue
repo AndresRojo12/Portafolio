@@ -1,7 +1,37 @@
 <template>
   <v-app class="container">
     <nav class="navegation">
-      <v-toolbar color="black">
+      <div
+        style="
+          color: white;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        "
+      >
+        <img
+          style="
+            border-radius: 50%;
+            width: 300px;
+            margin-top: 2%;
+            margin-left: 1%;
+          "
+          src="../../public/favicon.ico"
+          alt=""
+        />
+        <div style="display: flex; gap: 10px; margin-left: auto">
+          <v-btn @click="home" variant="text">Presentación</v-btn>
+
+          <v-btn variant="text" @click="servi">Servicios</v-btn>
+          <v-btn
+            variant="text"
+            :class="{ active: activeSection === 'proyect' }"
+            @click="setActiveSection('proyect')"
+            >Proyectos</v-btn
+          >
+        </div>
+      </div>
+      <!-- <v-toolbar color="black">
         <template v-slot:prepend>
           <div class="text-h5">Andres Rojo</div>
         </template>
@@ -14,10 +44,9 @@
             @click="setActiveSection('proyect')"
           >Proyectos</v-btn>
         </v-toolbar-items>
-      </v-toolbar>
+      </v-toolbar> -->
     </nav>
-    <hr class="separator" />
-
+    
     <section class="presentacion">
       <div class="left">
         <p>
@@ -53,8 +82,8 @@
           aprendiendo <br />
           y comprendiendo su funcionamiento, me encontraba con problemas <br />
           que para mi experiencia se tornaban difíciles de solucionar, <br />
-          pero durante el desarrollo iba comprendiendo el ¿por qué? del
-          problema <br />
+          pero durante el desarrollo iba comprendiendo el ¿por qué? del problema
+          <br />
           y a su vez iba dando solución con documentación asociada a las
           herramientas <br />
           que utilicé para el desarrollo.<br />
@@ -86,71 +115,111 @@
         <img
           src="/util/apiss.png"
           alt="Imagen descriptiva"
-          style="width: 400px; height: 400px; margin-top: 30%;"
+          style="width: 400px; height: 400px; margin-top: 30%"
         />
         <img
           src="/util/apps.png"
           alt="Imagen descriptiva"
-          style="width: 400px; height: 400px; margin-top: 50%;"
+          style="width: 400px; height: 400px; margin-top: 50%"
         />
         <img
           src="/util/javascript.png"
           alt="Imagen descriptiva"
-          style="width: 400px; height: 400px; margin-top: 50%;"
+          style="width: 400px; height: 400px; margin-top: 50%"
         />
         <img
           src="/util/vuess.jpeg"
           alt="Imagen descriptiva"
-          style="width: 400px; height: 400px; margin-top: 80%;"
+          style="width: 400px; height: 400px; margin-top: 80%"
         />
       </div>
     </section>
     <hr class="separator" />
     <section class="proyectos">
-      <h1 style="color: aqua;">Mis Proyectos</h1>
+      <h1 style="color: aqua">Mis Proyectos</h1>
       <hr class="separator" />
       <div>
-        <h2 style="display:flex; justify-content:center;">Massalud</h2>
-        <p style="margin-left:12%; margin-top:4%">
-          El proyecto massalud, consta de una plataforma, la cual sirva para agendar <br>
-          citas médicas e incluso solicitar medicamentos. <br>
-          <br>
-          La idea surge a partir de la problemática que se tiene en los centros de salud <br>
-          como lo son las farmacéuticas, donde hay gran aglomeración de personas <br>
-          haciendo grandes filas para realizar sus trámites. <br>
-          <br>
-          Esta plataforma es un proyecto propio que se encuentra en desarrollo, <br>
-          es un proyecto a largo plazo donde la idea es que sea una app robusta <br>
-          y que funcione perfectamente para sus trámites. <br>
-          <br>
-          Tiene su primera versión donde se permite el registro de usuarios <br>
-          y el inicio de sesión, incluyendo también su primera versión para agendar <br>
-          una cita médica con el especialista determinado. <br>
-          <br>
-          La aplicación está funcional hasta el punto en que también permite, <br>
-          notificaciones por correo, como lo es el registro exitoso <br>
-          y notificación de que se ha agendado una cita. <br>
-          <br>
+        <h2 style="display: flex; justify-content: center">Massalud</h2>
+        <p style="margin-left: 12%; margin-top: 4%">
+          El proyecto massalud, consta de una plataforma, la cual sirva para
+          agendar <br />
+          citas médicas e incluso solicitar medicamentos. <br />
+          <br />
+          La idea surge a partir de la problemática que se tiene en los centros
+          de salud <br />
+          como lo son las farmacéuticas, donde hay gran aglomeración de personas
+          <br />
+          haciendo grandes filas para realizar sus trámites. <br />
+          <br />
+          Esta plataforma es un proyecto propio que se encuentra en desarrollo,
+          <br />
+          es un proyecto a largo plazo donde la idea es que sea una app robusta
+          <br />
+          y que funcione perfectamente para sus trámites. <br />
+          <br />
+          Tiene su primera versión donde se permite el registro de usuarios
+          <br />
+          y el inicio de sesión, incluyendo también su primera versión para
+          agendar <br />
+          una cita médica con el especialista determinado. <br />
+          <br />
+          La aplicación está funcional hasta el punto en que también permite,
+          <br />
+          notificaciones por correo, como lo es el registro exitoso <br />
+          y notificación de que se ha agendado una cita. <br />
+          <br />
           Faltan más procesos para complementarla pero ya va por un buen camino.
         </p>
         <img
-          style="width: 80%; margin-left: 10%; justify-content: center; margin-top: 2%;"
+          style="
+            width: 80%;
+            margin-left: 10%;
+            justify-content: center;
+            margin-top: 2%;
+          "
           src="/util/Inicio massalud.png"
           alt="Inicio Massalud"
         />
         <img
-          style="width: 80%; margin-top: 2%; justify-content: center; margin-left: 10%"
+          style="
+            width: 80%;
+            margin-top: 2%;
+            justify-content: center;
+            margin-left: 10%;
+          "
           src="/util/registro.png"
           alt="Registro"
         />
         <img
-          style="width: 80%; margin-top: 2%; margin-left: 10%; justify-content: center"
+          style="
+            width: 80%;
+            margin-top: 2%;
+            margin-left: 10%;
+            justify-content: center;
+          "
           src="/util/perfil paciente.png"
           alt="Perfil Paciente"
         />
-        <img style="width: 80%; margin-top: 2%; margin-left: 10%; justify-content: center" src="/util/citas.png" alt="Citas" />
+        <img
+          style="
+            width: 80%;
+            margin-top: 2%;
+            margin-left: 10%;
+            justify-content: center;
+          "
+          src="/util/citas.png"
+          alt="Citas"
+        />
       </div>
-      <h3 style="color:aliceblue; font-size: 300%; display: flex; justify-content: center;margin-top: 2%;">
+      <h3
+        style="
+          color: aliceblue;
+          font-size: 300%;
+          display: flex;
+          justify-content: center;
+          margin-top: 2%;
+        "
+      >
         Enlaces de interés
       </h3>
       <div class="enlaces">
@@ -200,7 +269,7 @@ import { useRouter } from "vue-router";
 const icons = ref([
   { name: "mdi-github", url: CONFIG.GIT_HUB },
   { name: "mdi-gmail", url: `mailto:${CONFIG.CORREO}` },
-  { name: "mdi-linkedin", url: CONFIG.LINKEDIN }
+  { name: "mdi-linkedin", url: CONFIG.LINKEDIN },
 ]);
 
 const activeSection = ref("proyect");
@@ -259,17 +328,18 @@ const servi = () => {
   display: flex;
   justify-content: center;
   width: 100%;
+  margin-top: 4%;
 }
 .presentacion p {
   font-size: 200%;
 }
 .presentacion .left {
-  background-color:#000;
+  background-color: #000;
   width: 50%;
   padding: 20px;
 }
 .presentacion .right {
-  background-color:white;
+  background-color: white;
   width: 50%;
   padding: 20px;
   display: flex;
@@ -288,7 +358,4 @@ const servi = () => {
 .proyectos p {
   font-size: 200%;
 }
-
-
-
 </style>
