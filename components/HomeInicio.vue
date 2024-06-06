@@ -1,29 +1,10 @@
 <template>
   <v-app class="container">
     <nav class="navegation">
-      <div
-        style="
-          color: white;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-        "
-      >
-        <img
-          style="border-radius: 50%; width: 300px;
-          margin-top: 2%;
-          margin-left: 1%;"
-          src="../util/logo.png"
-          alt=""
-        />
-        <div style="display: flex; gap: 10px; margin-left: auto">
-          <v-btn
-            variant="text"
-            :class="{ active: activeSection === 'presentation' }"
-            @click="setActiveSection('presentation')"
-          >
-            Presentación
-          </v-btn>
+      <div class="nav-content">
+        <img src="../util/logo.png" alt="Logo" class="logo" />
+        <div class="nav-buttons">
+          <v-btn variant="text" :class="{ active: activeSection === 'presentation' }" @click="setActiveSection('presentation')">Presentación</v-btn>
           <v-btn variant="text" @click="service">Servicios</v-btn>
           <v-btn variant="text" @click="proyect">Proyectos</v-btn>
         </div>
@@ -33,53 +14,29 @@
     <section class="section1">
       <h1>HOLA MI NOMBRE ES ANDRES</h1>
       <h2>Desarrollo aplicaciones web</h2>
-      <P>
-        Soy desarrollador de software, desde que me adentré en el mundo de la
-        programación <br />
-        he estado obsesionado con encontrar soluciones creativas a problemas
-        complejos y crear productos tecnológicos <br />
-        que impacten de manera positiva en la vida de las personas.
-      </P>
+      <p>Soy desarrollador de software, desde que me adentré en el mundo de la programación he estado obsesionado con encontrar soluciones creativas a problemas complejos y crear productos tecnológicos que impacten de manera positiva en la vida de las personas.</p>
     </section>
 
     <section class="section2">
       <h3>Habilidades destacadas</h3>
       <div class="images">
-        <div class="js"><icon icon="logos:javascript" alt="JavaScript" /></div>
-        <div class="node"><icon icon="logos:nodejs" alt="Node.js" /></div>
-        <div class="ex"><icon icon="simple-icons:express" alt="Express" /></div>
-        <div class="vue"><icon icon="logos:vue" alt="Vue.js" /></div>
-      </div>
-      <div class="fr">
-        <div class="nuxt"><icon icon="logos:nuxt" alt="Vue.js" /></div>
-        <div class="vuetify"><icon icon="logos:vuetifyjs" alt="Vue.js" /></div>
+        <div class="skill"><icon icon="logos:javascript" alt="JavaScript" /></div>
+        <div class="skill"><icon icon="logos:nodejs" alt="Node.js" /></div>
+        <div class="skill"><icon icon="simple-icons:express" alt="Express" /></div>
+        <div class="skill"><icon icon="logos:vue" alt="Vue.js" /></div>
+        <div class="skill"><icon icon="logos:vuetifyjs" alt="Vuetify.js" /></div>
       </div>
     </section>
-    <hr class="separator" />
 
-    <v-footer class="d-flex flex-column" style="background-color: black">
-      <div
-        style="background-color: rgb(151, 157, 142)"
-        class="bg-black d-flex w-100 align-center px-4"
-      >
+    <v-footer class="footer">
+      <div class="footer-top">
         <strong>Contacto</strong>
         <v-spacer></v-spacer>
-        <a
-          v-for="icon in icons"
-          :key="icon.name"
-          :href="icon.url"
-          target="_blank"
-        >
-          <v-btn
-            :icon="icon.name"
-            class="bg-black mx-4"
-            size="small"
-            variant="plain"
-          ></v-btn>
+        <a v-for="icon in icons" :key="icon.name" :href="icon.url" target="_blank">
+          <v-btn :icon="icon.name" class="footer-icon"></v-btn>
         </a>
       </div>
-
-      <div class="px-4 py-2 bg-black text-center w-100">
+      <div class="footer-bottom">
         {{ new Date().getFullYear() }} — <strong>Andres Rojo</strong>
       </div>
     </v-footer>
@@ -87,15 +44,15 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { useRuntimeConfig } from "#app";
+import { ref } from 'vue';
+import { useRuntimeConfig } from '#app';
 const CONFIG = useRuntimeConfig().public;
 const router = useRouter();
 
 const icons = ref([
   { name: "mdi-github", url: CONFIG.GIT_HUB },
   { name: "mdi-gmail", url: `mailto:${CONFIG.CORREO}` },
-  { name: "mdi-linkedin", url: CONFIG.LINKEDIN },
+  { name: "mdi-linkedin", url: CONFIG.LINKEDIN }
 ]);
 
 const activeSection = ref("presentation");
@@ -114,80 +71,184 @@ const proyect = () => {
 </script>
 
 <style scoped>
-body,
-.container,
-.d-flex flex-column {
+body, .container {
   background-color: #000;
-}
-.section1 {
-  background-color: #000;
-  margin-top: 5%;
-  margin-left: 5%;
-}
-.section1 h1 {
-  color: aqua;
-  margin-top: 2%;
-  margin-left: 2%;
-  font-size: 200%;
-}
-.section1 p,
-h1,
-h2 {
   color: azure;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
-.section1 h2 {
-  margin-top: 1%;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-size: 500%;
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1% 2%;
 }
-.section1 p {
-  margin-top: 2%;
-  font-size: 200%;
-  font-family: "Times New Roman", Times, serif;
+
+.logo {
+  width: 100px;
+  border-radius: 50%;
 }
-.section2 {
-  background: color #000;
-  margin-left: 5%;
-  margin-top: 5%;
+
+.nav-buttons {
+  display: flex;
+  gap: 10px;
 }
-.section2 h3 {
-  color: azure;
-  font-size: 200%;
+
+.section1, .section2 {
+  padding: 5% 10%;
+  text-align: center;
+}
+
+.section1 h1, .section1 h2, .section1 p {
+  margin: 20px 0;
 }
 
 .images {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.skill {
+  font-size: 50px;
+}
+
+.footer {
+  background-color: black;
+  color: white;
+  padding: 20px 10%;
+  text-align: center;
+}
+
+.footer-top {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 10px 0;
+}
+
+.footer-icon {
   margin: 0 10px;
-  font-size: 200px;
-}
-.images div {
-  margin-top: 2%;
-}
-.fr {
-  display: flex;
-  margin: 0 10px;
-  font-size: 100px;
-  margin-left: 5%;
 }
 
-.node,
-.ex,
-.vue {
-  padding-left: 8%;
-  color: azure;
+.footer-bottom {
+  margin-top: 10px;
+  font-size: 14px;
 }
 
 
-.separator {
-  border: none;
-  height: 1px;
-  background-color: rgb(59, 62, 64);
-  margin: 20px 0;
+@media (max-width: 768px) {
+  .nav-content {
+    flex-direction: column;
+  }
+
+  .logo {
+    width: 80px;
+  }
+
+  .section1 h1, .section1 h2, .section1 p {
+    font-size: 18px;
+  }
+
+  .skill {
+    font-size: 40px;
+  }
 }
 
-.v-btn.active {
-  border-bottom: 2px solid aqua;
+@media (max-width: 480px) {
+  .nav-buttons {
+    flex-direction: column;
+  }
+
+  .section1 h1, .section1 h2, .section1 p {
+    font-size: 16px;
+  }
+
+  .skill {
+    font-size: 30px;
+  }
+}
+
+/* Estilos para pantallas de escritorio */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1200px; /* Ancho máximo del contenedor principal */
+    margin: 0 auto; /* Centra el contenedor en la pantalla */
+  }
+
+  /* Ajustes de alineación y tamaño de texto */
+  .section1 h1 {
+    font-size: 3rem; /* Tamaño de fuente más pequeño */
+  }
+  .section1 h2 {
+    font-size: 2rem; /* Tamaño de fuente más pequeño */
+  }
+  .section1 p {
+    font-size: 1.6rem; /* Tamaño de fuente más pequeño */
+  }
+
+  /* Ajustes de alineación y espaciado de botones de navegación */
+  .navegation {
+    padding: 20px 0; /* Espaciado interior de la barra de navegación */
+  }
+  .navegation .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .navegation img {
+    width: 150px; /* Tamaño de imagen reducido */
+  }
+  .navegation .right-buttons {
+    display: flex;
+    gap: 20px;
+  }
+  .navegation .right-buttons v-btn {
+    font-size: 1.4rem; /* Tamaño de fuente más pequeño para los botones */
+  }
+
+  /* Ajustes de imágenes */
+  .section2 .images img {
+    width: 150px; /* Tamaño de imagen reducido */
+  }
+
+  /* Ajustes de separadores */
+  .separator {
+    margin: 40px 0; /* Espaciado más grande entre secciones */
+  }
+}
+
+/* Estilos para los iconos */
+.images div,
+.fr div {
+  font-size: 200px; /* Tamaño de fuente para los iconos */
+}
+
+.images .js,
+.images .node,
+.images .ex,
+.images .vue,
+.fr .nuxt,
+.fr .vuetify {
+  margin-top: 2%; /* Espaciado entre los iconos */
+}
+
+/* Estilos para los iconos en la sección de proyectos */
+.proyectos img {
+  width: 400px; /* Ancho fijo para las imágenes de proyectos */
+  height: 400px; /* Altura fija para las imágenes de proyectos */
+}
+
+/* Estilos para los iconos de enlaces */
+.enlaces a {
+  padding: 10px 20px; /* Espaciado alrededor de los botones de enlaces */
+}
+.enlaces .git,
+.enlaces .app {
+  font-size: 1.4rem; /* Tamaño de fuente para los botones de enlaces */
 }
 </style>
