@@ -14,6 +14,8 @@ export default defineNuxtConfig({
     transpile: ['vuetify'],
   },
 
+  target: 'static',
+
   runtimeConfig: {
     public: {
       GIT_HUB: process.env.GIT_HUB,
