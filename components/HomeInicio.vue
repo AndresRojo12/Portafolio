@@ -27,7 +27,7 @@
         <div class="skill"><icon icon="logos:vuetifyjs" alt="Vuetify.js" /></div>
       </div>
     </section>
-
+    <hr class="separator" />
     <v-footer class="footer">
       <div class="footer-top">
         <strong>Contacto</strong>
@@ -79,6 +79,10 @@ body, .container {
   padding: 0;
 }
 
+.v-btn.active {
+  border-bottom: 2px solid aqua;
+}
+
 .nav-content {
   display: flex;
   justify-content: space-between;
@@ -87,8 +91,17 @@ body, .container {
 }
 
 .logo {
-  width: 100px;
   border-radius: 50%;
+  width: 40vw;
+  max-width: 500px;
+  min-width: 400px;
+}
+
+.separator {
+  border: none;
+  height: 1px;
+  background-color: rgb(59, 62, 64);
+  margin: 2rem 0;
 }
 
 .nav-buttons {
@@ -117,15 +130,15 @@ body, .container {
 }
 
 .footer {
+  display: flex;
   background-color: black;
   color: white;
-  padding: 20px 10%;
-  text-align: center;
+  justify-content: center;
 }
 
 .footer-top {
   display: flex;
-  flex-direction: column;
+  flex-direction:row;
   justify-content: center;
   align-items: center;
   padding: 10px 0;
@@ -147,7 +160,8 @@ body, .container {
   }
 
   .logo {
-    width: 80px;
+    width: 300px;
+    
   }
 
   .section1 h1, .section1 h2, .section1 p {
@@ -176,16 +190,66 @@ body, .container {
 /* Estilos para pantallas de escritorio */
 @media (min-width: 1024px) {
   .container {
-    max-width: 1200px; /* Ancho máximo del contenedor principal */
-    margin: 0 auto; /* Centra el contenedor en la pantalla */
+    max-width: 1500px; /* Ancho máximo del contenedor principal */
+   /* Centra el contenedor en la pantalla */
   }
 
   /* Ajustes de alineación y tamaño de texto */
   .section1 h1 {
-    font-size: 3rem; /* Tamaño de fuente más pequeño */
+    font-size: 2rem;
+    color: aqua; /* Tamaño de fuente más pequeño */
   }
   .section1 h2 {
-    font-size: 2rem; /* Tamaño de fuente más pequeño */
+    font-size: 5rem; /* Tamaño de fuente más pequeño */
+  }
+  .section1 p {
+    font-size: 1.6rem; /* Tamaño de fuente más pequeño */
+  }
+
+  /* Ajustes de alineación y espaciado de botones de navegación */
+  .navegation {
+    padding: 20px 0; /* Espaciado interior de la barra de navegación */
+  }
+  .navegation .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .navegation img {
+    width: 150px; /* Tamaño de imagen reducido */
+  }
+  .navegation .right-buttons {
+    display: flex;
+    gap: 20px;
+  }
+  .navegation .right-buttons v-btn {
+    font-size: 1.4rem; /* Tamaño de fuente más pequeño para los botones */
+  }
+
+  /* Ajustes de imágenes */
+  .section2 .images img {
+    width: 150px; /* Tamaño de imagen reducido */
+  }
+
+  /* Ajustes de separadores */
+  .separator {
+    margin: 40px 0; /* Espaciado más grande entre secciones */
+  }
+}
+
+@media (min-width: 438px) {
+  .container {
+    max-width: 1500px; /* Ancho máximo del contenedor principal */
+   /* Centra el contenedor en la pantalla */
+  }
+
+  /* Ajustes de alineación y tamaño de texto */
+  .section1 h1 {
+    font-size: 2rem;
+    color: aqua; /* Tamaño de fuente más pequeño */
+  }
+  .section1 h2 {
+    font-size: 5rem; /* Tamaño de fuente más pequeño */
   }
   .section1 p {
     font-size: 1.6rem; /* Tamaño de fuente más pequeño */
