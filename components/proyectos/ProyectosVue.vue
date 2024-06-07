@@ -1,6 +1,6 @@
 <template>
   <v-app class="container">
-    <nav class="navegation">
+    <nav class="navigation">
       <div class="nav-content">
         <img class="logo" src="../../util/logo.png" alt="Logo" />
         <div class="nav-buttons">
@@ -14,22 +14,20 @@
         </div>
       </div>
     </nav>
-    
+
     <section class="presentacion">
       <div class="left">
         <p>
           En mi trayectoria como desarrollador de software, he tenido el rol de desarrollador fullstack. Desde mi experiencia como fullstack, he tenido la oportunidad de trabajar con diferentes herramientas tanto para backend como para frontend. <br /><br />
           Entre estas herramientas se encuentran las siguientes: <br /><br />
-          <span class="highlight">Backend</span> <br />
-          <br>
+          <span class="highlight">Backend</span> <br /><br>
           - Javascript <br />
           - Node Js <br />
           - Express <br />
           - Sequelize-orm <br />
           - PostgreSQL <br />
           - Postman-Administrador de rutas http <br /><br />
-          <span class="highlight">Frontend</span> <br />
-          <br>
+          <span class="highlight">Frontend</span> <br /><br>
           - Nuxt <br />
           - Vue js <br />
           - Vuetify <br />
@@ -122,7 +120,6 @@ const servi = () => {
 </script>
 
 <style scoped>
-
 .container {
   background-color: #000;
   padding: 0;
@@ -133,340 +130,188 @@ const servi = () => {
   color: aqua;
   font-weight: bold;
 }
-
 .nav-content {
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  padding: 5rem;
+  padding: 1rem 5rem;
 }
-
 .v-btn.active {
   border-bottom: 2px solid aqua;
 }
-
 .logo {
   border-radius: 50%;
-  width: 40vw;
-  max-width: 200px;
+  width: 20vw;
+  max-width: 400px;
   min-width: 400px;
-  margin-top: 2%;
-  
 }
-
 .nav-buttons {
+  display: flex;
   gap: 0.5rem;
+  flex-wrap: wrap;
 }
-
 .presentacion {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
-  margin-top: 4%;
+  margin-top: 2rem;
 }
-
-.presentacion .left {
-  background-color: #000;
+.presentacion .left,
+.presentacion .right {
   width: 100%;
   padding: 20px;
-  text-align: center;
 }
-
-.presentacion p {
+.presentacion .left p {
   color: aliceblue;
   font-size: 1rem;
   line-height: 1.5;
 }
-
 .presentacion .right {
-  background-color: white;
-  width: 100%;
-  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 .presentacion .right img {
   width: 80%;
   max-width: 400px;
   height: auto;
   margin-top: 20px;
 }
-
 .separator {
   border: none;
   height: 1px;
   background-color: rgb(59, 62, 64);
   margin: 2rem 0;
 }
-
 .proyectos h1 {
   font-size: 2rem;
   margin-top: 2%;
   text-align: center;
   color: azure;
 }
-
 .proyectos h2 {
   font-size: 1.5rem;
   margin-top: 4%;
-  color: aliceblue;
+  color: black;
   text-align: center;
   background-color: aqua;
   padding: 0.5rem;
   border-radius: 8px;
 }
-
 .proyectos p {
-  margin-left: 12%;
+  margin-left: 10%;
   margin-top: 4%;
   color: aliceblue;
   font-size: 1rem;
   line-height: 1.5;
 }
-
 .proyectos img {
   width: 80%;
   margin-left: 10%;
   margin-top: 2%;
 }
-
 .enlaces {
   display: flex;
   justify-content: center;
   margin-top: 2%;
   gap: 1rem;
 }
-
 .enlaces .git,
 .app {
   background-color: aqua;
 }
-
 .footer {
   display: flex;
   background-color: black;
   color: white;
   justify-content: center;
 }
-
 .footer-top {
   display: flex;
-  flex-direction:row;
   justify-content: center;
   align-items: center;
   padding: 10px 0;
 }
-
 .footer-icon {
   margin: 0 10px;
 }
-
 .footer-bottom {
   margin-top: 10px;
   font-size: 14px;
 }
-
 @media (min-width: 768px) {
   .nav-buttons {
     gap: 4rem;
   }
-
-  .container{
-    max-width:1500px
+  .container {
+    max-width: 1500px;
   }
-
   .presentacion .left,
   .presentacion .right {
     width: 50%;
   }
-
-  .presentacion p {
+  .presentacion .left p {
     font-size: 1.25rem;
   }
-
   .proyectos h1 {
     font-size: 3rem;
   }
-
   .proyectos h2 {
     font-size: 2rem;
   }
-
   .proyectos p {
     font-size: 1.25rem;
   }
 }
-
 @media (max-width: 1024px) {
+
   .logo {
-    width: 80px;
+    width: 10vw;
+    max-width: 80px;
   }
   .nav-buttons v-btn {
     font-size: 0.9rem;
   }
-
   .presentacion .left p {
     font-size: 0.9rem;
   }
-
-  .project-img {
+  .proyectos img {
     width: 90%;
-   
   }
+}
+@media (max-width: 482px) {
   
-}
-
-@media (max-width: 480px) {
   .logo {
-    width: 60px;
+    width: 15vw;
+    max-width: 60px;
   }
-
-  .container {
-    min-width: 1500px; 
-  }
-
   .nav-buttons {
     flex-direction: column;
     align-items: center;
     gap: 5px;
   }
-
   .nav-buttons v-btn {
     font-size: 0.8rem;
   }
-
   .presentacion .left p {
     font-size: 0.8rem;
   }
-
-  .presentacion .right img {
-    margin-top: 10px;
-  }
-
   .proyectos h1 {
     font-size: 1.5rem;
   }
-
   .proyectos h2 {
     font-size: 1.2rem;
   }
-
   .proyectos p {
     font-size: 0.9rem;
   }
-
-  .project-img {
+  .proyectos img {
     width: 100%;
     margin-left: 0;
   }
-
-  .enlaces a {
-    padding: 1%;
-    margin: 1%;
-  }
-}
-
-@media (max-width: 570px) {
-  .logo {
-    width: 60px;
-  }
-
-  .container {
-    max-width: 1500px; 
-  }
-
-  .nav-buttons {
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-  }
-
-  .nav-buttons v-btn {
-    font-size: 0.8rem;
-  }
-
-  .presentacion .left p {
-    font-size: 0.8rem;
-  }
-
-  .presentacion .right img {
-    margin-top: 10px;
-  }
-
-  .proyectos h1 {
-    font-size: 1.5rem;
-  }
-
-  .proyectos h2 {
-    font-size: 1.2rem;
-  }
-
-  .proyectos p {
-    font-size: 0.9rem;
-  }
-
-  .project-img {
-    width: 100%;
-    margin-left: 0;
-  }
-
-  .enlaces a {
-    padding: 1%;
-    margin: 1%;
-  }
-}
-
-
-@media (max-width: 438px) {
-  .logo {
-    width: 60px;
-  }
-
-
-  .container {
-    min-width: 1500px; 
-  }
-
-  .nav-buttons {
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-  }
-
-  .nav-buttons v-btn {
-    font-size: 0.8rem;
-  }
-
-  .presentacion .left p {
-    font-size: 0.8rem;
-  }
-
-  .presentacion .right img {
-    margin-top: 10px;
-  }
-
-  .proyectos h1 {
-    font-size: 1.5rem;
-  }
-
-  .proyectos h2 {
-    font-size: 1.2rem;
-  }
-
-  .proyectos p {
-    font-size: 0.9rem;
-  }
-
-  .project-img {
-    width: 100%;
-    margin-left: 0;
-  }
-
   .enlaces a {
     padding: 1%;
     margin: 1%;
