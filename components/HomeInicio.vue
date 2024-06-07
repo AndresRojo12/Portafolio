@@ -187,28 +187,26 @@ body, .container {
   }
 }
 
-/* Estilos para pantallas de escritorio */
 @media (min-width: 1024px) {
   .container {
-    max-width: 1500px; /* Ancho máximo del contenedor principal */
-   /* Centra el contenedor en la pantalla */
+    max-width: 1500px;
   }
 
-  /* Ajustes de alineación y tamaño de texto */
+  
   .section1 h1 {
     font-size: 2rem;
-    color: aqua; /* Tamaño de fuente más pequeño */
+    color: aqua; 
   }
   .section1 h2 {
-    font-size: 5rem; /* Tamaño de fuente más pequeño */
+    font-size: 5rem; 
   }
   .section1 p {
-    font-size: 1.6rem; /* Tamaño de fuente más pequeño */
+    font-size: 1.6rem; 
   }
 
-  /* Ajustes de alineación y espaciado de botones de navegación */
+  
   .navegation {
-    padding: 20px 0; /* Espaciado interior de la barra de navegación */
+    padding: 20px 0; 
   }
   .navegation .container {
     display: flex;
@@ -216,48 +214,48 @@ body, .container {
     align-items: center;
   }
   .navegation img {
-    width: 150px; /* Tamaño de imagen reducido */
+    width: 150px; 
   }
   .navegation .right-buttons {
     display: flex;
     gap: 20px;
   }
   .navegation .right-buttons v-btn {
-    font-size: 1.4rem; /* Tamaño de fuente más pequeño para los botones */
+    font-size: 1.4rem; 
   }
 
-  /* Ajustes de imágenes */
+  
   .section2 .images img {
-    width: 150px; /* Tamaño de imagen reducido */
+    width: 150px; 
   }
 
-  /* Ajustes de separadores */
+  
   .separator {
-    margin: 40px 0; /* Espaciado más grande entre secciones */
+    margin: 40px 0; 
   }
 }
 
 @media (min-width: 438px) {
   .container {
-    max-width: 1500px; /* Ancho máximo del contenedor principal */
-   /* Centra el contenedor en la pantalla */
+    max-width: 1500px; 
+   
   }
 
-  /* Ajustes de alineación y tamaño de texto */
+  
   .section1 h1 {
     font-size: 2rem;
-    color: aqua; /* Tamaño de fuente más pequeño */
+    color: aqua; 
   }
   .section1 h2 {
-    font-size: 5rem; /* Tamaño de fuente más pequeño */
+    font-size: 5rem; 
   }
   .section1 p {
-    font-size: 1.6rem; /* Tamaño de fuente más pequeño */
+    font-size: 1.6rem; 
   }
 
-  /* Ajustes de alineación y espaciado de botones de navegación */
+  
   .navegation {
-    padding: 20px 0; /* Espaciado interior de la barra de navegación */
+    padding: 20px 0; 
   }
   .navegation .container {
     display: flex;
@@ -265,31 +263,31 @@ body, .container {
     align-items: center;
   }
   .navegation img {
-    width: 150px; /* Tamaño de imagen reducido */
+    width: 150px; 
   }
   .navegation .right-buttons {
     display: flex;
     gap: 20px;
   }
   .navegation .right-buttons v-btn {
-    font-size: 1.4rem; /* Tamaño de fuente más pequeño para los botones */
+    font-size: 1.4rem; 
   }
 
-  /* Ajustes de imágenes */
+  
   .section2 .images img {
-    width: 150px; /* Tamaño de imagen reducido */
+    width: 150px; 
   }
 
-  /* Ajustes de separadores */
+  
   .separator {
-    margin: 40px 0; /* Espaciado más grande entre secciones */
+    margin: 40px 0; 
   }
 }
 
 /* Estilos para los iconos */
 .images div,
 .fr div {
-  font-size: 200px; /* Tamaño de fuente para los iconos */
+  font-size: 200px; 
 }
 
 .images .js,
@@ -298,21 +296,21 @@ body, .container {
 .images .vue,
 .fr .nuxt,
 .fr .vuetify {
-  margin-top: 2%; /* Espaciado entre los iconos */
+  margin-top: 2%; 
 }
 
-/* Estilos para los iconos en la sección de proyectos */
+
 .proyectos img {
-  width: 400px; /* Ancho fijo para las imágenes de proyectos */
-  height: 400px; /* Altura fija para las imágenes de proyectos */
+  width: 400px; 
+  height: 400px; 
 }
 
-/* Estilos para los iconos de enlaces */
+
 .enlaces a {
-  padding: 10px 20px; /* Espaciado alrededor de los botones de enlaces */
+  padding: 10px 20px; 
 }
 .enlaces .git,
 .enlaces .app {
-  font-size: 1.4rem; /* Tamaño de fuente para los botones de enlaces */
+  font-size: 1.4rem;
 }
 </style>

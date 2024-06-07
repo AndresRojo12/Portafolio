@@ -28,28 +28,26 @@
       <div class="categories">
         <div class="category api">
           <img src="/util/api.jpg" alt="APIs" />
+          <p class="uno">Desarrollo APIs escalables y seguras que permiten la integración eficiente entre diversos sistemas y aplicaciones.</p>
         </div>
         <div class="category web">
           <img src="/util/pagina web.jpg" alt="Páginas Web" />
+          <p class="dos">Desarrollo páginas web atractivas y funcionales que representan la identidad y los objetivos de tu marca.</p>
         </div>
         <div class="category app">
           <img src="/util/desarrollo-aplicaciones-web.png" alt="Aplicaciones Web" />
+          <p class="tres">Diseño y desarrollo aplicaciones web interactivas y responsivas que ofrecen experiencias de usuario excepcionales en todos los dispositivos.</p>
         </div>
-      </div>
-      <div class="parrafos">
-        <p class="uno">Desarrollo APIs escalables y seguras que permiten la integración eficiente entre diversos sistemas y aplicaciones.</p>
-        <p class="dos">Desarrollo páginas web atractivas y funcionales que representan la identidad y los objetivos de tu marca.</p>
-        <p class="tres">Diseño y desarrollo aplicaciones web interactivas y responsivas que ofrecen experiencias de usuario excepcionales en todos los dispositivos.</p>
       </div>
     </section>
     <hr class="separator" />
 
-    <v-footer class="d-flex flex-column" style="background-color: black">
-      <div class="contact-header">
+    <v-footer class="footer" style="background-color: black">
+      <div class="footer-top">
         <strong>Contacto</strong>
         <v-spacer></v-spacer>
         <a v-for="icon in icons" :key="icon.name" :href="icon.url" target="_blank">
-          <v-btn :icon="icon.name" class="icon-btn" size="small" variant="plain"></v-btn>
+          <v-btn :icon="icon.name" class="footer-icon"></v-btn>
         </a>
       </div>
 
@@ -109,7 +107,7 @@ const proyect = () => {
   border-radius: 50%;
   width: 40vw;
   max-width: 200px;
-  min-width: 100px;
+  min-width: 400px;
 }
 
 .nav-buttons {
@@ -126,12 +124,12 @@ const proyect = () => {
 
 .section1 h1 {
   color: aqua;
-  font-size: 2rem;
+  font-size: 4rem;
 }
 
 .section1 p {
   color: azure;
-  font-size: 1rem;
+  font-size: 2rem;
   margin-top: 1rem;
   line-height: 1.5;
 }
@@ -143,16 +141,17 @@ const proyect = () => {
 
 .section2 h3 {
   color: azure;
-  font-size: 1.5rem;
+  font-size: 2rem;
   text-align: center;
 }
 
 .categories {
+  margin-top: 2%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .category {
@@ -166,14 +165,9 @@ const proyect = () => {
   height: auto;
 }
 
-.parrafos {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  text-align: center;
-}
 
-.parrafos p {
+
+.categories p {
   color: aliceblue;
   font-size: 1rem;
 }
@@ -185,29 +179,34 @@ const proyect = () => {
   margin: 2rem 0;
 }
 
-.contact-header {
-  background-color: rgb(151, 157, 142);
+.footer {
   display: flex;
-  align-items: center;
-  padding: 1rem;
+  background-color: black;
+  color: white;
+  justify-content: center;
 }
 
-.icon-btn {
-  margin: 0 0.5rem;
+.footer-top {
+  display: flex;
+  flex-direction:row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.footer-icon {
+  margin: 0 10px;
 }
 
 .footer-bottom {
-  padding: 1rem;
-  background-color: #000;
-  text-align: center;
-  color: white;
+  margin-top: 10px;
+  font-size: 14px;
 }
 
 .v-btn.active {
   border-bottom: 2px solid aqua;
 }
 
-/* Media Queries */
 @media (max-width: 768px) {
   .nav-content {
     flex-direction: column;
@@ -231,7 +230,7 @@ const proyect = () => {
     font-size: 1.25rem;
   }
 
-  .parrafos p {
+  .categories p {
     font-size: 0.875rem;
   }
 
@@ -262,7 +261,7 @@ const proyect = () => {
     font-size: 1rem;
   }
 
-  .parrafos p {
+  .categories p {
     font-size: 0.75rem;
   }
 }
