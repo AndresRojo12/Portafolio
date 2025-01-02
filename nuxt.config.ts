@@ -13,8 +13,18 @@ export default defineNuxtConfig({
   build: {
     transpile: ['vuetify'],
   },
+  modules: ["@nuxtjs/sitemap"],
+  site: {
+    url: "https://andres-rojo-software-development.onrender.com/",
+  },
+  sitemap: {
+    hostname: "https://andres-rojo-software-development.onrender.com/",
+    gzip: true,
+    routes: [
+      
+    ],
+  },
 
- 
   head: {
     title: 'Portafolio',
     meta: [
