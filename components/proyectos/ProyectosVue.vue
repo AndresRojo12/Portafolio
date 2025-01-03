@@ -10,7 +10,8 @@
             variant="text"
             :class="{ active: activeSection === 'proyect' }"
             @click="setActiveSection('proyect')"
-          >Proyectos</v-btn>
+            >Proyectos</v-btn
+          >
         </div>
       </div>
     </nav>
@@ -18,28 +19,51 @@
     <section class="presentacion">
       <div class="left">
         <p>
-          En mi trayectoria como desarrollador de software, he tenido el rol de desarrollador fullstack. Desde mi experiencia como fullstack, he tenido la oportunidad de trabajar con diferentes herramientas tanto para backend como para frontend. <br /><br />
+          En mi trayectoria como desarrollador de software, he tenido el rol de
+          desarrollador fullstack. Desde mi experiencia como fullstack, he
+          tenido la oportunidad de trabajar con diferentes herramientas tanto
+          para backend como para frontend. <br /><br />
           Entre estas herramientas se encuentran las siguientes: <br /><br />
-          <span class="highlight">Backend</span> <br /><br>
+          <span class="highlight">Backend</span> <br /><br />
           - Javascript <br />
           - Node Js <br />
           - Express <br />
           - Sequelize-orm <br />
           - PostgreSQL <br />
           - Postman-Administrador de rutas http <br /><br />
-          <span class="highlight">Frontend</span> <br /><br>
+          <span class="highlight">Frontend</span> <br /><br />
           - Nuxt <br />
           - Vue js <br />
           - Vuetify <br />
           - Pinia-para guardado de estado <br /><br />
-          Con Sequelize-orm, he logrado comprender su funcionamiento, ¿para qué sirve? Más que todo para hacer migraciones a una base de datos sin necesidad de utilizar SQL, partiendo desde un modelo hecho con la sintaxis de "sequelize", donde se ejecuta una migración y se crea una tabla con el nombre del modelo en automático en la base de datos. <br /><br />
-          En mi experiencia con el desarrollo de API´S y a medida que iba aprendiendo y comprendiendo su funcionamiento, me encontraba con problemas que para mi experiencia se tornaban difíciles de solucionar, pero durante el desarrollo iba comprendiendo el ¿por qué? del problema y a su vez iba dando solución con documentación asociada a las herramientas que utilicé para el desarrollo. <br /><br />
-          He realizado proyectos propios, para así tener experiencia en el desarrollo en los cuales me han ayudado mucho para poder despegar y poder estar en un buen nivel de código. <br /><br />
-          Mi pasión por el desarrollo de software va más allá de escribir código; me apasiona crear soluciones innovadoras que resuelvan problemas reales y mejoren la vida de las personas. Estoy constantemente buscando oportunidades para aprender y crecer profesionalmente, ya sea explorando nuevas tecnologías o participando en proyectos desafiantes.
+          Con Sequelize-orm, he logrado comprender su funcionamiento, ¿para qué
+          sirve? Más que todo para hacer migraciones a una base de datos sin
+          necesidad de utilizar SQL, partiendo desde un modelo hecho con la
+          sintaxis de "sequelize", donde se ejecuta una migración y se crea una
+          tabla con el nombre del modelo en automático en la base de datos.
+          <br /><br />
+          En mi experiencia con el desarrollo de API´S y a medida que iba
+          aprendiendo y comprendiendo su funcionamiento, me encontraba con
+          problemas que para mi experiencia se tornaban difíciles de solucionar,
+          pero durante el desarrollo iba comprendiendo el ¿por qué? del problema
+          y a su vez iba dando solución con documentación asociada a las
+          herramientas que utilicé para el desarrollo. <br /><br />
+          He realizado proyectos propios, para así tener experiencia en el
+          desarrollo en los cuales me han ayudado mucho para poder despegar y
+          poder estar en un buen nivel de código. <br /><br />
+          Mi pasión por el desarrollo de software va más allá de escribir
+          código; me apasiona crear soluciones innovadoras que resuelvan
+          problemas reales y mejoren la vida de las personas. Estoy
+          constantemente buscando oportunidades para aprender y crecer
+          profesionalmente, ya sea explorando nuevas tecnologías o participando
+          en proyectos desafiantes.
         </p>
       </div>
       <div class="right">
-        <img src="/util/desarrollo-aplicaciones-web.png" alt="Imagen descriptiva" />
+        <img
+          src="/util/desarrollo-aplicaciones-web.png"
+          alt="Imagen descriptiva"
+        />
         <img src="/util/apiss.png" alt="Imagen descriptiva" />
         <img src="/util/apps.png" alt="Imagen descriptiva" />
         <img src="/util/javascript.png" alt="Imagen descriptiva" />
@@ -50,37 +74,93 @@
     <section class="proyectos">
       <h1>Mis Proyectos</h1>
       <hr class="separator" />
-      <div>
-        <h2>Massalud</h2>
-        <p>
-          El proyecto massalud, consta de una plataforma, la cual sirva para agendar citas médicas e incluso solicitar medicamentos. <br /><br />
-          La idea surge a partir de la problemática que se tiene en los centros de salud como lo son las farmacéuticas, donde hay gran aglomeración de personas haciendo grandes filas para realizar sus trámites. <br /><br />
-          Esta plataforma es un proyecto propio que se encuentra en desarrollo, es un proyecto a largo plazo donde la idea es que sea una app robusta y que funcione perfectamente para sus trámites. <br /><br />
-          Tiene su primera versión donde se permite el registro de usuarios y el inicio de sesión, incluyendo también su primera versión para agendar una cita médica con el especialista determinado. <br /><br />
-          La aplicación está funcional hasta el punto en que también permite, notificaciones por correo, como lo es el registro exitoso y notificación de que se ha agendado una cita. <br /><br />
-          Faltan más procesos para complementarla pero ya va por un buen camino.
-        </p>
-        <img src="/util/Inicio massalud.png" alt="Inicio Massalud" />
-        <img src="/util/registro.png" alt="Registro" />
-        <img src="/util/perfil paciente.png" alt="Perfil Paciente" />
-        <img src="/util/citas.png" alt="Citas" />
-      </div>
-      <h3>Enlaces de interés</h3>
-      <div class="enlaces">
-        <a href="https://github.com/AndresRojo12/MaSSalud" target="_blank">
-          <v-btn class="git">Código fuente en github</v-btn>
-        </a>
-        <a href="https://massalud.onrender.com/" target="_blank">
-          <v-btn class="app">Dirección de app desplegada</v-btn>
-        </a>
-      </div>
+      <table>
+        <tr>
+          <td style="width: 50%">
+            <br>
+            <h2 style="align: center">Massalud</h2>
+            <div style="align: center">
+              <a href="https://github.com/AndresRojo12/MaSSalud" target="_blank"><img src="/util/perfil paciente.png" alt="Perfil Paciente" /></a>
+              <p>
+                El proyecto massalud, consta de una plataforma, la cual sirva
+                para agendar citas médicas e incluso solicitar medicamentos.
+                <br /><br />
+                La idea surge a partir de la problemática que se tiene en los
+                centros de salud como lo son las farmacéuticas, donde hay gran
+                aglomeración de personas haciendo grandes filas para realizar
+                sus trámites.
+                <br /><br />
+              </p>
+            </div>
+              <a
+                href="https://github.com/AndresRojo12/MaSSalud"
+                target="_blank"
+              >
+                <img style="width:100px ;"
+                  src="https://img.shields.io/badge/CÓDIGO-ff9?style=for-the-badge&logo=github&logoColor=black"
+                />
+              </a>
+          </td>
+          <hr style="height:700px ;">
+          <td style="width:50% ;">
+            <br>
+            <h2 style="align: center">Antiguedades Chespirito</h2>
+            <div style="align: center; height: 584px;">
+              <a href="https://github.com/AndresRojo12/chespirito-cliente" target="_blank"><img
+                style="height: 248px"
+                src="/util/logos.png"
+                alt="Perfil Paciente"
+              /></a>
+              <p>
+                La aplicación Chespirito Antigüedades trata del interés por las
+                monedas, billetes, nacionales e internacionales, que son
+                coleccionables La aplicación se encarga principalmente de la
+                compra y venta de estos ejemplares
+                <br /><br />
+              </p>
+              <div style="display:flex; justify-content: center;" >
+                <p>
+    
+                  <h4>Frontend</h4>
+                  <a
+                    href="https://github.com/AndresRojo12/chespirito-cliente"
+                    target="_blank"
+                  >
+                    <img style="width:100px ;"
+                      src="https://img.shields.io/badge/C%C3%93DIGO-80ffaa?style=for-the-badge&logo=github&logoColor=black"
+                    />
+                  </a>
+                </p>
+                <p>
+    
+                  <h4>Backend</h4>
+                  <a
+                    href="https://github.com/AndresRojo12/chespirito"
+                    target="_blank"
+                  >
+                    <img style="width:100px ;"
+                      src="https://img.shields.io/badge/C%C3%93DIGO-80ffaa?style=for-the-badge&logo=github&logoColor=black"
+                    />
+                  </a>
+                </p>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <br>
     </section>
     <hr class="separator" />
     <v-footer class="footer">
       <div class="footer-top">
         <strong>Contacto</strong>
         <v-spacer></v-spacer>
-        <a v-for="icon in icons" :key="icon.name" :href="icon.url" target="_blank">
+        <a
+          v-for="icon in icons"
+          :key="icon.name"
+          :href="icon.url"
+          target="_blank"
+        >
           <v-btn :icon="icon.name" class="footer-icon"></v-btn>
         </a>
       </div>
@@ -92,30 +172,30 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
-import { useRuntimeConfig } from '#app';
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+import { useRuntimeConfig } from "#app";
 const CONFIG = useRuntimeConfig().public;
 const router = useRouter();
 
 const icons = ref([
-  { name: 'mdi-github', url: CONFIG.GIT_HUB },
-  { name: 'mdi-gmail', url: `mailto:${CONFIG.CORREO}` },
-  { name: 'mdi-linkedin', url: CONFIG.LINKEDIN }
+  { name: "mdi-github", url: CONFIG.GIT_HUB },
+  { name: "mdi-gmail", url: `mailto:${CONFIG.CORREO}` },
+  { name: "mdi-linkedin", url: CONFIG.LINKEDIN },
 ]);
 
-const activeSection = ref('proyect');
+const activeSection = ref("proyect");
 
-const setActiveSection = section => {
+const setActiveSection = (section) => {
   activeSection.value = section;
 };
 
 const home = () => {
-  router.push('/');
+  router.push("/");
 };
 
 const servi = () => {
-  router.push('/servicio/servicio');
+  router.push("/servicio/servicio");
 };
 </script>
 
@@ -144,11 +224,10 @@ const servi = () => {
 .logo {
   border-radius: 50%;
   width: 20vw;
-  max-width: 400px;
-  min-width: 400px;
+  max-width: 300px;
+  min-width: 300px;
 }
 .nav-buttons {
-  display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
 }
@@ -186,6 +265,14 @@ const servi = () => {
   background-color: rgb(59, 62, 64);
   margin: 2rem 0;
 }
+
+/* .proyectos {
+  width: 50%;
+} */
+
+.salud {
+  width: 50%;
+}
 .proyectos h1 {
   font-size: 2rem;
   margin-top: 2%;
@@ -195,10 +282,8 @@ const servi = () => {
 .proyectos h2 {
   font-size: 1.5rem;
   margin-top: 4%;
-  color: black;
+  color: rgb(193, 186, 186);
   text-align: center;
-  background-color: aqua;
-  padding: 0.5rem;
   border-radius: 8px;
 }
 .proyectos p {
@@ -267,7 +352,6 @@ const servi = () => {
   }
 }
 @media (max-width: 1024px) {
-
   .logo {
     width: 10vw;
     max-width: 80px;
@@ -283,7 +367,6 @@ const servi = () => {
   }
 }
 @media (max-width: 482px) {
-  
   .logo {
     width: 15vw;
     max-width: 60px;

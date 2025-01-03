@@ -106,8 +106,8 @@ const proyect = () => {
 .logo {
   border-radius: 50%;
   width: 40vw;
-  max-width: 200px;
-  min-width: 400px;
+  max-width: 300px;
+  min-width: 300px;
 }
 
 .nav-buttons {
