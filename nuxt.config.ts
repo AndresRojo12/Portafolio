@@ -15,10 +15,10 @@ export default defineNuxtConfig({
   },
   modules: ["@nuxtjs/sitemap"],
   site: {
-    url: "https://www.andresrojosoftwaredev.com",
+    url: "https://andresrojosoftwaredev.com",
   },
   sitemap: {
-    hostname: "https://www.andresrojosoftwaredev.com",
+    hostname: "https://andresrojosoftwaredev.com",
     gzip: true,
     routes: [
       
