@@ -6,12 +6,8 @@
         <div class="nav-buttons">
           <v-btn @click="home" variant="text">Presentación</v-btn>
           <v-btn variant="text" @click="servi">Servicios</v-btn>
-          <v-btn
-            variant="text"
-            :class="{ active: activeSection === 'proyect' }"
-            @click="setActiveSection('proyect')"
-            >Proyectos</v-btn
-          >
+          <v-btn variant="text" :class="{ active: activeSection === 'proyect' }"
+            @click="setActiveSection('proyect')">Proyectos</v-btn>
         </div>
       </div>
     </nav>
@@ -60,10 +56,7 @@
         </p>
       </div>
       <div class="right">
-        <img
-          src="/util/desarrollo-aplicaciones-web.png"
-          alt="Imagen descriptiva"
-        />
+        <img src="/util/desarrollo-aplicaciones-web.png" alt="Imagen descriptiva" />
         <img src="/util/apiss.png" alt="Imagen descriptiva" />
         <img src="/util/apps.png" alt="Imagen descriptiva" />
         <img src="/util/javascript.png" alt="Imagen descriptiva" />
@@ -80,7 +73,8 @@
             <br>
             <h2 style="align: center">Massalud</h2>
             <div style="align: center">
-              <a href="https://github.com/AndresRojo12/MaSSalud" target="_blank"><img src="/util/perfil paciente.png" alt="Perfil Paciente" /></a>
+              <a href="https://github.com/AndresRojo12/MaSSalud" target="_blank"><img src="/util/perfil paciente.png"
+                  alt="Perfil Paciente" /></a>
               <p>
                 El proyecto massalud, consta de una plataforma, la cual sirva
                 para agendar citas médicas e incluso solicitar medicamentos.
@@ -92,25 +86,18 @@
                 <br /><br />
               </p>
             </div>
-              <a
-                href="https://github.com/AndresRojo12/MaSSalud"
-                target="_blank"
-              >
-                <img style="width:100px ;"
-                  src="https://img.shields.io/badge/CÓDIGO-ff9?style=for-the-badge&logo=github&logoColor=black"
-                />
-              </a>
+            <a href="https://github.com/AndresRojo12/MaSSalud" target="_blank">
+              <img style="width:100px ;"
+                src="https://img.shields.io/badge/CÓDIGO-ff9?style=for-the-badge&logo=github&logoColor=black" />
+            </a>
           </td>
           <hr style="height:700px ;">
           <td style="width:50% ;">
             <br>
             <h2 style="align: center">Antiguedades Chespirito</h2>
             <div style="align: center; height: 584px;">
-              <a href="https://github.com/AndresRojo12/chespirito-cliente" target="_blank"><img
-                style="height: 248px"
-                src="/util/logos.png"
-                alt="Perfil Paciente"
-              /></a>
+              <a href="https://github.com/AndresRojo12/chespirito-cliente" target="_blank"><img style="height: 248px"
+                  src="/util/logos.png" alt="Perfil Paciente" /></a>
               <p>
                 La aplicación Chespirito Antigüedades trata del interés por las
                 monedas, billetes, nacionales e internacionales, que son
@@ -118,30 +105,22 @@
                 compra y venta de estos ejemplares
                 <br /><br />
               </p>
-              <div style="display:flex; justify-content: center;" >
+              <div style="display:flex; justify-content: center;">
                 <p>
-    
-                  <h4>Frontend</h4>
-                  <a
-                    href="https://github.com/AndresRojo12/chespirito-cliente"
-                    target="_blank"
-                  >
-                    <img style="width:100px ;"
-                      src="https://img.shields.io/badge/C%C3%93DIGO-80ffaa?style=for-the-badge&logo=github&logoColor=black"
-                    />
-                  </a>
+
+                <h4>Frontend</h4>
+                <a href="https://github.com/AndresRojo12/chespirito-cliente" target="_blank">
+                  <img style="width:100px ;"
+                    src="https://img.shields.io/badge/C%C3%93DIGO-80ffaa?style=for-the-badge&logo=github&logoColor=black" />
+                </a>
                 </p>
                 <p>
-    
-                  <h4>Backend</h4>
-                  <a
-                    href="https://github.com/AndresRojo12/chespirito"
-                    target="_blank"
-                  >
-                    <img style="width:100px ;"
-                      src="https://img.shields.io/badge/C%C3%93DIGO-80ffaa?style=for-the-badge&logo=github&logoColor=black"
-                    />
-                  </a>
+
+                <h4>Backend</h4>
+                <a href="https://github.com/AndresRojo12/chespirito" target="_blank">
+                  <img style="width:100px ;"
+                    src="https://img.shields.io/badge/C%C3%93DIGO-80ffaa?style=for-the-badge&logo=github&logoColor=black" />
+                </a>
                 </p>
               </div>
             </div>
@@ -155,12 +134,7 @@
       <div class="footer-top">
         <strong>Contacto</strong>
         <v-spacer></v-spacer>
-        <a
-          v-for="icon in icons"
-          :key="icon.name"
-          :href="icon.url"
-          target="_blank"
-        >
+        <a v-for="icon in icons" :key="icon.name" :href="icon.url" target="_blank">
           <v-btn :icon="icon.name" class="footer-icon"></v-btn>
         </a>
       </div>
@@ -204,33 +178,41 @@ const servi = () => {
   background-color: #000;
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
+  
 }
+
 .highlight {
   color: aqua;
   font-weight: bold;
 }
+
 .nav-content {
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  padding: 1rem 5rem;
+  padding: 1rem;
 }
+
 .v-btn.active {
   border-bottom: 2px solid aqua;
 }
+
 .logo {
+
   border-radius: 50%;
-  width: 20vw;
   max-width: 300px;
   min-width: 300px;
+  padding: 15px 30px;
 }
+
 .nav-buttons {
-  gap: 0.5rem;
-  flex-wrap: wrap;
+  display: flex;
+  margin-right: 2%;
+  
 }
+
 .presentacion {
   display: flex;
   flex-wrap: wrap;
@@ -238,27 +220,32 @@ const servi = () => {
   width: 100%;
   margin-top: 2rem;
 }
+
 .presentacion .left,
 .presentacion .right {
   width: 100%;
   padding: 20px;
 }
+
 .presentacion .left p {
   color: aliceblue;
   font-size: 1rem;
   line-height: 1.5;
 }
+
 .presentacion .right {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .presentacion .right img {
   width: 80%;
   max-width: 400px;
   height: auto;
   margin-top: 20px;
 }
+
 .separator {
   border: none;
   height: 1px;
@@ -273,12 +260,14 @@ const servi = () => {
 .salud {
   width: 50%;
 }
+
 .proyectos h1 {
   font-size: 2rem;
   margin-top: 2%;
   text-align: center;
   color: azure;
 }
+
 .proyectos h2 {
   font-size: 1.5rem;
   margin-top: 4%;
@@ -286,6 +275,7 @@ const servi = () => {
   text-align: center;
   border-radius: 8px;
 }
+
 .proyectos p {
   margin-left: 10%;
   margin-top: 4%;
@@ -293,111 +283,132 @@ const servi = () => {
   font-size: 1rem;
   line-height: 1.5;
 }
+
 .proyectos img {
   width: 80%;
   margin-left: 10%;
   margin-top: 2%;
 }
+
 .enlaces {
   display: flex;
   justify-content: center;
   margin-top: 2%;
   gap: 1rem;
 }
+
 .enlaces .git,
 .app {
   background-color: aqua;
 }
+
 .footer {
   display: flex;
   background-color: black;
   color: white;
   justify-content: center;
 }
+
 .footer-top {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 10px 0;
 }
+
 .footer-icon {
   margin: 0 10px;
 }
+
 .footer-bottom {
   margin-top: 10px;
   font-size: 14px;
 }
+
 @media (min-width: 768px) {
   .nav-buttons {
     gap: 4rem;
   }
+
   .container {
     max-width: 1500px;
   }
+
   .presentacion .left,
   .presentacion .right {
     width: 50%;
   }
+
   .presentacion .left p {
     font-size: 1.25rem;
   }
+
   .proyectos h1 {
     font-size: 3rem;
   }
+
   .proyectos h2 {
     font-size: 2rem;
   }
+
   .proyectos p {
     font-size: 1.25rem;
   }
 }
+
 @media (max-width: 1024px) {
   .logo {
     width: 10vw;
     max-width: 80px;
   }
+
   .nav-buttons v-btn {
     font-size: 0.9rem;
   }
+
   .presentacion .left p {
     font-size: 0.9rem;
   }
+
   .proyectos img {
     width: 90%;
   }
 }
-@media (max-width: 482px) {
-  .logo {
-    width: 15vw;
-    max-width: 60px;
-  }
+
+@media (max-width: 480px) {
+
   .nav-buttons {
     flex-direction: column;
-    align-items: center;
-    gap: 5px;
+
   }
-  .nav-buttons v-btn {
-    font-size: 0.8rem;
+
+  .nav-content {
+    flex-direction: column;
   }
+
   .presentacion .left p {
     font-size: 0.8rem;
   }
+
   .proyectos h1 {
     font-size: 1.5rem;
   }
+
   .proyectos h2 {
     font-size: 1.2rem;
   }
+
   .proyectos p {
     font-size: 0.9rem;
   }
+
   .proyectos img {
     width: 100%;
     margin-left: 0;
   }
+
   .enlaces a {
     padding: 1%;
     margin: 1%;
   }
-}
-</style>
+}</style>

@@ -16,7 +16,7 @@
     </nav>
 
     <section class="section1">
-      <h1>SERVICIOS</h1>
+      <h1 style="margin-top:2% ;">SERVICIOS</h1>
       <p>
         Como desarrollador apasionado por la tecnología y la innovación, ofrezco una gama de servicios especializados en el desarrollo de soluciones digitales que incluyen APIs, aplicaciones web y páginas web. Con un compromiso inquebrantable con la calidad y la eficiencia.<br /><br />
         Mi objetivo es proporcionar una solución personalizada que no solo satisfaga necesidades actuales sino que también facilite su crecimiento y éxito futuro.
@@ -113,7 +113,7 @@ const proyect = () => {
 .nav-buttons {
   display: flex;
   gap: 0.5rem;
-  margin-left: auto;
+  
 }
 
 .section1 {
@@ -240,17 +240,10 @@ const proyect = () => {
 }
 
 @media (max-width: 480px) {
-  .logo {
-    width: 60vw;
-  }
 
   .nav-buttons {
     flex-direction: column;
-    gap: 0.25rem;
-  }
-
-  .section1 h1 {
-    font-size: 1.25rem;
+    
   }
 
   .section1 p {
