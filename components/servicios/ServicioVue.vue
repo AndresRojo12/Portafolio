@@ -42,7 +42,7 @@
     </section>
     <hr class="separator" />
 
-    <v-footer class="footer" style="background-color: black">
+    <!-- <v-footer class="footer" style="background-color: black">
       <div class="footer-top">
         <strong>Contacto</strong>
         <v-spacer></v-spacer>
@@ -54,7 +54,7 @@
       <div class="footer-bottom">
         {{ new Date().getFullYear() }} — <strong>Andres Rojo</strong>
       </div>
-    </v-footer>
+    </v-footer> -->
   </v-app>
 </template>
 
