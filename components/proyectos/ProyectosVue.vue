@@ -130,6 +130,18 @@
       <br>
     </section>
     <hr class="separator" />
+    <v-footer class="footer">
+      <div class="footer-top">
+        <strong>Contacto</strong>
+        <v-spacer></v-spacer>
+        <a v-for="icon in icons" :key="icon.name" :href="icon.url" target="_blank">
+          <v-btn :icon="icon.name" class="footer-icon"></v-btn>
+        </a>
+      </div>
+      <div class="footer-bottom">
+        {{ new Date().getFullYear() }} — <strong>Andres Rojo</strong>
+      </div>
+    </v-footer>
   </v-app>
 </template>
 

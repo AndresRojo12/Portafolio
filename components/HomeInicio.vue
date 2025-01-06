@@ -129,14 +129,38 @@
     </section>
 
     <hr class="separator" />
+    <v-footer class="footer">
+      <div class="footer-top">
+        <strong>Contacto</strong>
+        <v-spacer></v-spacer>
+        <a
+          v-for="icon in icons"
+          :key="icon.name"
+          :href="icon.url"
+          target="_blank"
+        >
+          <v-btn :icon="icon.name" class="footer-icon"></v-btn>
+        </a>
+      </div>
+      <div class="footer-bottom">
+        {{ new Date().getFullYear() }} — <strong>Andres Rojo</strong>
+      </div>
+    </v-footer>
   </v-app>
 </template>
 
 <script setup>
 import { ref } from "vue";
-
+import { useRuntimeConfig } from "#app";
+const CONFIG = useRuntimeConfig().public;
 const router = useRouter();
 
+const icons = ref([
+  { name: "mdi-github", url: CONFIG.GIT_HUB },
+  { name: "mdi-gmail", url: `mailto:${CONFIG.CORREO}` },
+  { name: "mdi-linkedin", url: CONFIG.LINKEDIN },
+  { name: "mdi-whatsapp", url: CONFIG.WPP },
+]);
 
 const activeSection = ref("presentation");
 
