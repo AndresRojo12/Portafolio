@@ -110,7 +110,7 @@
 
                 <h4>Frontend</h4>
                 <a href="https://github.com/AndresRojo12/chespirito-cliente" target="_blank">
-                  <img style="width:100px ;"
+                  <img style="width:80px;"
                     src="https://img.shields.io/badge/C%C3%93DIGO-80ffaa?style=for-the-badge&logo=github&logoColor=black" />
                 </a>
                 </p>
@@ -118,7 +118,7 @@
 
                 <h4>Backend</h4>
                 <a href="https://github.com/AndresRojo12/chespirito" target="_blank">
-                  <img style="width:100px ;"
+                  <img style="width:80px ;"
                     src="https://img.shields.io/badge/C%C3%93DIGO-80ffaa?style=for-the-badge&logo=github&logoColor=black" />
                 </a>
                 </p>
@@ -246,12 +246,12 @@ const servi = () => {
   margin-top: 20px;
 }
 
-.separator {
+/* .separator {
   border: none;
   height: 1px;
   background-color: rgb(59, 62, 64);
   margin: 2rem 0;
-}
+} */
 
 /* .proyectos {
   width: 50%;
