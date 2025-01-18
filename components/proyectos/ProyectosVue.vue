@@ -1,5 +1,5 @@
 <template>
-  <v-app class="container">
+  <v-app style="background-color:#000 ;">
     <nav class="navigation">
       <div class="nav-content">
         <img class="logo" src="../../util/logo.png" alt="Logo" />
@@ -205,12 +205,6 @@ const servi = () => {
   max-width: 300px;
   min-width: 300px;
   padding: 15px 30px;
-}
-
-.nav-buttons {
-  display: flex;
-  margin-right: 2%;
-  
 }
 
 .presentacion {

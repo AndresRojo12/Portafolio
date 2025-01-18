@@ -1,5 +1,5 @@
 <template>
-  <v-app class="container">
+  <v-app style="background-color:#000; color:aliceblue">
     <nav class="navegation">
       <div class="nav-content">
         <img src="../util/logo.png" alt="Logo" class="logo" />
@@ -178,14 +178,17 @@ const proyect = () => {
 </script>
 
 <style scoped>
-body,
+
 .container {
-  background-color: #000;
   color: azure;
+  background-color: black;
+  
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
+
+
 
 .v-btn.active {
   border-bottom: 2px solid aqua;
@@ -196,10 +199,11 @@ body,
 }
 
 .nav-content {
+  color: azure;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1% 2%;
+  
 }
 
 .logo {
@@ -207,6 +211,7 @@ body,
   width: 40vw;
   max-width: 300px;
   min-width: 300px;
+  margin: 6px;
 }
 
 .separator {
@@ -218,10 +223,15 @@ body,
 
 .nav-buttons {
   display: flex;
-  gap: 10px;
+  gap: 0.5rem;
+
 }
 
-.section1,
+.section1 {
+  
+  padding: 5%;
+  text-align: center;
+}
 .section2 {
   padding: 5% 10%;
   text-align: center;
