@@ -8,6 +8,8 @@
           <v-btn variant="text" @click="servi">Servicios</v-btn>
           <v-btn variant="text" :class="{ active: activeSection === 'proyect' }"
             @click="setActiveSection('proyect')">Proyectos</v-btn>
+          <v-btn variant="text" @click="contacto">Contacto</v-btn>
+
         </div>
       </div>
     </nav>
@@ -170,6 +172,10 @@ const home = () => {
 
 const servi = () => {
   router.push("/servicio/servicio");
+};
+
+const contacto = () => {
+  router.push("/contact/contact");
 };
 </script>
 

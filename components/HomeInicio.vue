@@ -12,6 +12,8 @@
           >
           <v-btn variant="text" @click="service">Servicios</v-btn>
           <v-btn variant="text" @click="proyect">Proyectos</v-btn>
+          <v-btn variant="text" @click="contacto">Contacto</v-btn>
+
         </div>
       </div>
     </nav>
@@ -174,6 +176,10 @@ const service = () => {
 
 const proyect = () => {
   router.push("/proyectos/proyecto");
+};
+
+const contacto = () => {
+  router.push("/contact/contact");
 };
 </script>
 
