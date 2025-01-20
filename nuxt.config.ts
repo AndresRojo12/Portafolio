@@ -45,7 +45,8 @@ export default defineNuxtConfig({
       GIT_HUB: process.env.GIT_HUB,
       LINKEDIN: process.env.LINKEDIN,
       CORREO: process.env.CORREO,
-      WPP: process.env.WPP
+      WPP: process.env.WPP,
+      API_BASE_URL: process.env.API_BASE_URL
     }
   }
 })
