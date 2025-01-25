@@ -123,7 +123,7 @@ const snackbar = ref({
 // Función para enviar el mensaje con useFetch
 const sendMessage = async () => {
   try {
-    const { data, error } = await useFetch(`${CONFIG.public.API_BASE_URL}`, {
+    const { data, error } = await useFetch(`${CONFIG.API_BASE_URL}contact`, {
       method: 'POST',
       body: {
         name: name.value,
