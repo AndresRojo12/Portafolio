@@ -78,7 +78,7 @@
 
       <br />
 
-      <v-row style="display: flex; justify-content: center">
+      <v-row class="cards" style="display: flex; justify-content: center">
         <v-col cols="12" md="2">
           <v-card
             class="zoom-card"
@@ -94,7 +94,6 @@
             >
             </v-img>
           </v-card>
-          <div class="text-center text-caption">Using Props Only</div>
         </v-col>
 
         <v-col cols="12" md="2">
@@ -110,7 +109,6 @@
             <v-img style="width: 400px" src="/logos.png"> </v-img>
           </v-card>
 
-          <div class="text-center text-caption">Using Slots Only</div>
         </v-col>
 
         <v-col cols="12" md="2">
@@ -126,7 +124,6 @@
             </v-img>
           </v-card>
 
-          <div class="text-center text-caption">Using Markup Only</div>
         </v-col>
       </v-row>
     </section>
@@ -406,21 +403,8 @@ const contacto = () => {
     font-size: 0.8rem;
   }
 
-  .proyectos h1 {
-    font-size: 1.5rem;
-  }
-
-  .proyectos h2 {
-    font-size: 1.2rem;
-  }
-
-  .proyectos p {
-    font-size: 0.9rem;
-  }
-
-  .proyectos img {
-    width: 100%;
-    margin-left: 0;
+  .cards{
+    padding:20px 100px;
   }
 
   .enlaces a {
