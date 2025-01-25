@@ -250,12 +250,12 @@ const contacto = () => {
   margin-top: 20px;
 }
 
-/* .separator {
+.separator {
   border: none;
   height: 1px;
   background-color: rgb(59, 62, 64);
   margin: 2rem 0;
-} */
+}
 
 /* .proyectos {
   width: 50%;
