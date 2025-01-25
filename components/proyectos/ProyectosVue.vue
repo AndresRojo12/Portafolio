@@ -1,15 +1,18 @@
 <template>
-  <v-app style="background-color:#000 ;">
+  <v-app style="background-color: #000">
     <nav class="navigation">
       <div class="nav-content">
         <img class="logo" src="../../util/logo.png" alt="Logo" />
         <div class="nav-buttons">
           <v-btn @click="home" variant="text">Presentación</v-btn>
           <v-btn variant="text" @click="servi">Servicios</v-btn>
-          <v-btn variant="text" :class="{ active: activeSection === 'proyect' }"
-            @click="setActiveSection('proyect')">Proyectos</v-btn>
+          <v-btn
+            variant="text"
+            :class="{ active: activeSection === 'proyect' }"
+            @click="setActiveSection('proyect')"
+            >Proyectos</v-btn
+          >
           <v-btn variant="text" @click="contacto">Contacto</v-btn>
-
         </div>
       </div>
     </nav>
@@ -58,7 +61,10 @@
         </p>
       </div>
       <div class="right">
-        <img src="/util/desarrollo-aplicaciones-web.png" alt="Imagen descriptiva" />
+        <img
+          src="/util/desarrollo-aplicaciones-web.png"
+          alt="Imagen descriptiva"
+        />
         <img src="/util/apiss.png" alt="Imagen descriptiva" />
         <img src="/util/apps.png" alt="Imagen descriptiva" />
         <img src="/util/javascript.png" alt="Imagen descriptiva" />
@@ -69,74 +75,73 @@
     <section class="proyectos">
       <h1>Mis Proyectos</h1>
       <hr class="separator" />
-      <table>
-        <tr>
-          <td style="width: 50%">
-            <br>
-            <h2 style="align: center">Massalud</h2>
-            <div style="align: center">
-              <a href="https://github.com/AndresRojo12/MaSSalud" target="_blank"><img src="/util/perfil paciente.png"
-                  alt="Perfil Paciente" /></a>
-              <p>
-                El proyecto massalud, consta de una plataforma, la cual sirva
-                para agendar citas médicas e incluso solicitar medicamentos.
-                <br /><br />
-                La idea surge a partir de la problemática que se tiene en los
-                centros de salud como lo son las farmacéuticas, donde hay gran
-                aglomeración de personas haciendo grandes filas para realizar
-                sus trámites.
-                <br /><br />
-              </p>
-            </div>
-            <a href="https://github.com/AndresRojo12/MaSSalud" target="_blank">
-              <img style="width:100px ;"
-                src="https://img.shields.io/badge/CÓDIGO-ff9?style=for-the-badge&logo=github&logoColor=black" />
-            </a>
-          </td>
-          <hr style="height:700px ;">
-          <td style="width:50% ;">
-            <br>
-            <h2 style="align: center">Antiguedades Chespirito</h2>
-            <div style="align: center; height: 584px;">
-              <a href="https://github.com/AndresRojo12/chespirito-cliente" target="_blank"><img style="height: 248px"
-                  src="/util/logos.png" alt="Perfil Paciente" /></a>
-              <p>
-                La aplicación Chespirito Antigüedades trata del interés por las
-                monedas, billetes, nacionales e internacionales, que son
-                coleccionables La aplicación se encarga principalmente de la
-                compra y venta de estos ejemplares
-                <br /><br />
-              </p>
-              <div style="display:flex; justify-content: center;">
-                <p>
 
-                <h4>Frontend</h4>
-                <a href="https://github.com/AndresRojo12/chespirito-cliente" target="_blank">
-                  <img style="width:80px;"
-                    src="https://img.shields.io/badge/C%C3%93DIGO-80ffaa?style=for-the-badge&logo=github&logoColor=black" />
-                </a>
-                </p>
-                <p>
+      <br />
 
-                <h4>Backend</h4>
-                <a href="https://github.com/AndresRojo12/chespirito" target="_blank">
-                  <img style="width:80px ;"
-                    src="https://img.shields.io/badge/C%C3%93DIGO-80ffaa?style=for-the-badge&logo=github&logoColor=black" />
-                </a>
-                </p>
-              </div>
-            </div>
-          </td>
-        </tr>
-      </table>
-      <br>
+      <v-row style="display: flex; justify-content: center">
+        <v-col cols="12" md="2">
+          <v-card
+            class="zoom-card"
+            :href="massalud"
+            target="_blank"
+            text="El proyecto massalud, consta de una plataforma, la cual sirva
+            para agendar citas médicas e incluso solicitar medicamentos."
+            title="Massalud"
+          >
+            <v-img
+              style="width: 400px; height: 233px"
+              src="/perfil paciente.png"
+            >
+            </v-img>
+          </v-card>
+          <div class="text-center text-caption">Using Props Only</div>
+        </v-col>
+
+        <v-col cols="12" md="2">
+          <v-card
+            class="zoom-card"
+            :href="chespirito"
+            text="La aplicación Antigüedades Chespirito trata del interés por la
+                  compra y venta de billetes y monedas, nacionales e internacionales."
+            title="Antiguedades Chespirito"
+            target="_blank"
+
+          >
+            <v-img style="width: 400px" src="/logos.png"> </v-img>
+          </v-card>
+
+          <div class="text-center text-caption">Using Slots Only</div>
+        </v-col>
+
+        <v-col cols="12" md="2">
+          <v-card
+            class="zoom-card"
+            :href="store"
+            text="La tienda ARM trata de un e-comerce, el cual trata de montar todo tipo
+          de categorias de productos y hacer su compra."
+            title="ARM STORE"
+            target="_blank"
+          >
+            <v-img style="width: 400px; height: 233px" src="/store.png">
+            </v-img>
+          </v-card>
+
+          <div class="text-center text-caption">Using Markup Only</div>
+        </v-col>
+      </v-row>
     </section>
+
     <hr class="separator" />
     <v-footer class="footer">
       <div class="footer-top">
         <strong>Contacto</strong>
         <v-spacer></v-spacer>
-        <a v-for="icon in icons" :key="icon.name" :href="icon.url" target="_blank">
+        <a
+          v-for="icon in icons"
+          :key="icon.name"
+          :href="icon.url"
+          target="_blank"
+        >
           <v-btn :icon="icon.name" class="footer-icon"></v-btn>
         </a>
       </div>
@@ -153,6 +158,10 @@ import { useRouter } from "vue-router";
 import { useRuntimeConfig } from "#app";
 const CONFIG = useRuntimeConfig().public;
 const router = useRouter();
+const massalud = CONFIG.MASS_SALUD;
+const chespirito = CONFIG.CHESPIRITO;
+const store = CONFIG.STORE;
+
 
 const icons = ref([
   { name: "mdi-github", url: CONFIG.GIT_HUB },
@@ -184,7 +193,6 @@ const contacto = () => {
   background-color: #000;
   padding: 0;
   margin: 0;
-  
 }
 
 .highlight {
@@ -206,7 +214,6 @@ const contacto = () => {
 }
 
 .logo {
-
   border-radius: 50%;
   max-width: 300px;
   min-width: 300px;
@@ -325,6 +332,15 @@ const contacto = () => {
   font-size: 14px;
 }
 
+.zoom-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.zoom-card:hover {
+  transform: scale(1.1); /* Ampliar la tarjeta */
+  box-shadow: 0 8px 20px rgba(14, 67, 165, 0.3); /* Aumentar sombra */
+}
+
 @media (min-width: 768px) {
   .nav-buttons {
     gap: 4rem;
@@ -376,12 +392,10 @@ const contacto = () => {
 }
 
 @media (max-width: 480px) {
-
   .nav-buttons {
     display: flex;
     flex-direction: column;
     padding-top: 2%;
-
   }
 
   .nav-content {
@@ -413,4 +427,5 @@ const contacto = () => {
     padding: 1%;
     margin: 1%;
   }
-}</style>
+}
+</style>

@@ -46,7 +46,10 @@ export default defineNuxtConfig({
       LINKEDIN: process.env.LINKEDIN,
       CORREO: process.env.CORREO,
       WPP: process.env.WPP,
-      API_BASE_URL: process.env.API_BASE_URL
+      API_BASE_URL: process.env.API_BASE_URL,
+      MASS_SALUD: process.env.MASS_SALUD,
+      CHESPIRITO: process.env.CHESPIRITO,
+      STORE: process.env.STORE,
     }
   }
 })
