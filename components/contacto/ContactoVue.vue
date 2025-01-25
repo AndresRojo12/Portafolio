@@ -159,7 +159,7 @@ const clearForm = () => {
 
   .form{
     width: 600px;
-    margin-top: 2%;
+    margin-top: 4%;
   }
 
   .form1 {
@@ -210,5 +210,30 @@ const clearForm = () => {
   margin-top: 10px;
   font-size: 14px;
 }
-/* Puedes añadir estilos personalizados aquí si los necesitas */
+
+@media (max-width: 768px) {
+  .nav-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+
+.nav-content {
+  flex-direction: column;
+  text-align: center;
+  
+}
+
+.nav-buttons {
+  display:flex;
+  flex-direction: column;
+  padding-top: 2%;
+}
+.form{
+    width: 300px;
+    margin-top: 10%;
+  }
+}
 </style>

@@ -378,7 +378,9 @@ const contacto = () => {
 @media (max-width: 480px) {
 
   .nav-buttons {
+    display: flex;
     flex-direction: column;
+    padding-top: 2%;
 
   }
 
