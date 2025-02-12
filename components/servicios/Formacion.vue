@@ -9,7 +9,7 @@
 
           <v-list-item
             prepend-avatar="/iud.png"
-            title="Ingenieria en desarrollo de software de datos"
+            title="Ingenieria en desarrollo de software y datos"
           >
             <template v-slot:subtitle>
               <span class="font-weight-bold">Iu Digital de Antioquia</span>
