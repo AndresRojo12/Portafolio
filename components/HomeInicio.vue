@@ -1,23 +1,5 @@
 <template>
-  <v-app style="background-color:#000; color:aliceblue">
-    <nav class="navegation">
-      <div class="nav-content">
-        <img src="../util/logo.png" alt="Logo" class="logo" />
-        <div class="nav-buttons">
-          <v-btn
-            variant="text"
-            :class="{ active: activeSection === 'presentation' }"
-            @click="setActiveSection('presentation')"
-            >Presentación</v-btn
-          >
-          <v-btn variant="text" @click="service">Servicios</v-btn>
-          <v-btn variant="text" @click="proyect">Proyectos</v-btn>
-          <v-btn variant="text" @click="contacto">Contacto</v-btn>
-
-        </div>
-      </div>
-    </nav>
-
+  <v-app>
     <section class="section1">
       <h1>HOLA MI NOMBRE ES ANDRES</h1>
       <h2 style="font-size: 50px">Desarrollador de software</h2>
@@ -129,96 +111,20 @@
         </div>
       </div>
     </section>
-
-    <hr class="separator" />
-    <v-footer class="footer">
-      <div class="footer-top">
-        <strong>Contacto</strong>
-        <v-spacer></v-spacer>
-        <a
-          v-for="icon in icons"
-          :key="icon.name"
-          :href="icon.url"
-          target="_blank"
-        >
-          <v-btn :icon="icon.name" class="footer-icon"></v-btn>
-        </a>
-      </div>
-      <div class="footer-bottom">
-        {{ new Date().getFullYear() }} — <strong>Andres Rojo</strong>
-      </div>
-    </v-footer>
   </v-app>
 </template>
 
 <script setup>
 import { ref } from "vue";
 import { useRuntimeConfig } from "#app";
-const CONFIG = useRuntimeConfig().public;
-const router = useRouter();
 
-const icons = ref([
-  { name: "mdi-github", url: CONFIG.GIT_HUB },
-  { name: "mdi-gmail", url: `mailto:${CONFIG.CORREO}` },
-  { name: "mdi-linkedin", url: CONFIG.LINKEDIN },
-  { name: "mdi-whatsapp", url: CONFIG.WPP },
-]);
-
-const activeSection = ref("presentation");
-
-const setActiveSection = (section) => {
-  activeSection.value = section;
-};
-
-const service = () => {
-  router.push("/servicio/servicio");
-};
-
-const proyect = () => {
-  router.push("/proyectos/proyecto");
-};
-
-const contacto = () => {
-  router.push("/contact/contact");
-};
 </script>
 
 <style scoped>
-
-.container {
-  color: azure;
-  background-color: black;
-  
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-
-
-.v-btn.active {
-  border-bottom: 2px solid aqua;
-}
-
 .section2 h3 {
   font-size: 30px;
 }
 
-.nav-content {
-  color: azure;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  
-}
-
-.logo {
-  border-radius: 50%;
-  width: 40vw;
-  max-width: 300px;
-  min-width: 300px;
-  margin: 6px;
-}
 
 .separator {
   border: none;
@@ -227,18 +133,15 @@ const contacto = () => {
   margin: 2rem 0;
 }
 
-.nav-buttons {
-  display: flex;
-  gap: 0.5rem;
-
-}
-
 .section1 {
-  
+  background-color: black;
+  color: aliceblue;
   padding: 5%;
   text-align: center;
 }
 .section2 {
+  background-color: black;
+  color: aliceblue;
   padding: 5% 10%;
   text-align: center;
 }
@@ -258,30 +161,6 @@ const contacto = () => {
 
 .skill {
   font-size: 50px;
-}
-
-.footer {
-  display: flex;
-  background-color: black;
-  color: white;
-  justify-content: center;
-}
-
-.footer-top {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 0;
-}
-
-.footer-icon {
-  margin: 0 10px;
-}
-
-.footer-bottom {
-  margin-top: 10px;
-  font-size: 14px;
 }
 
 @media (max-width: 768px) {
@@ -428,11 +307,4 @@ const contacto = () => {
   height: 400px;
 }
 
-.enlaces a {
-  padding: 10px 20px;
-}
-.enlaces .git,
-.enlaces .app {
-  font-size: 1.4rem;
-}
 </style>

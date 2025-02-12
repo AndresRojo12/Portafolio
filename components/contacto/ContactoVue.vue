@@ -1,21 +1,5 @@
 <template>
   <v-app style="background-color:black ;">
-    <nav class="navegation">
-      <div class="nav-content">
-        <img src="../../util/logo.png" alt="Logo" class="logo" />
-        <div class="nav-buttons">
-          <v-btn @click="home" variant="text">Presentación</v-btn>
-          <v-btn variant="text" @click="service">Servicios</v-btn>
-          <v-btn variant="text" @click="proyect">Proyectos</v-btn>
-          <v-btn
-            variant="text"
-            :class="{ active: activeSection === 'contacto' }"
-            @click="setActiveSection('contacto')"
-            >Contacto</v-btn
-          >
-        </div>
-      </div>
-    </nav>
     <v-container class="form">
       <h1 style="color:white;
       align-items: center;">Contacto</h1>
@@ -55,52 +39,13 @@
         </v-snackbar>
       </v-form>
     </v-container>
-    <hr class="separator" />
-    <v-footer class="footer">
-      <div class="footer-top">
-        <strong>Contacto</strong>
-        <v-spacer></v-spacer>
-        <a v-for="icon in icons" :key="icon.name" :href="icon.url" target="_blank">
-          <v-btn :icon="icon.name" class="footer-icon"></v-btn>
-        </a>
-      </div>
-      <div class="footer-bottom">
-        {{ new Date().getFullYear() }} — <strong>Andres Rojo</strong>
-      </div>
-    </v-footer>
   </v-app>
 </template>
 
 <script setup>
 import { ref } from 'vue';
-import { useRouter } from "vue-router";
 import { useRuntimeConfig } from "#app";
 const CONFIG = useRuntimeConfig().public;
-const router = useRouter();
-
-const icons = ref([
-  { name: "mdi-github", url: CONFIG.GIT_HUB },
-  { name: "mdi-gmail", url: `mailto:${CONFIG.CORREO}` },
-  { name: "mdi-linkedin", url: CONFIG.LINKEDIN },
-]);
-
-const activeSection = ref("contacto");
-
-const setActiveSection = (section) => {
-  activeSection.value = section;
-};
-
-const home = () => {
-  router.push("/");
-};
-
-const service = () => {
-  router.push("/servicio/servicio");
-};
-
-const proyect = () => {
-  router.push("/proyectos/proyecto");
-};
 // Estado para el formulario
 const valid = ref(false);
 const name = ref('');
@@ -167,70 +112,15 @@ const clearForm = () => {
     margin-top: 2%;
   }
 
-  .nav-content {
-  color: azure;
-  display: flex;
-  justify-content: space-between;
-  padding-right: 15px;
-  align-items: center;
-  
-}
-
-.logo {
-  border-radius: 50%;
-  width: 40vw;
-  max-width: 300px;
-  min-width: 300px;
-  margin: 6px;
-}
-
-.v-btn.active {
-  border-bottom: 2px solid aqua;
-}
-
-.footer {
-  display: flex;
-  background-color: black;
-  color: white;
-  justify-content: center;
-}
-
-.footer-top {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 0;
-}
-
-.footer-icon {
-  margin: 0 10px;
-}
-
-.footer-bottom {
-  margin-top: 10px;
-  font-size: 14px;
-}
-
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .nav-content {
     flex-direction: column;
     text-align: center;
   }
-}
+} */
 
 @media (max-width: 480px) {
 
-.nav-content {
-  flex-direction: column;
-  text-align: center;
-  
-}
-
-.nav-buttons {
-  display:flex;
-  flex-direction: column;
-  padding-top: 2%;
-}
 .form{
     width: 300px;
     margin-top: 10%;
