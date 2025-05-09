@@ -50,6 +50,7 @@ export default defineNuxtConfig({
       MASS_SALUD: process.env.MASS_SALUD,
       CHESPIRITO: process.env.CHESPIRITO,
       STORE: process.env.STORE,
+      INSIGNIA_AWS: process.env.INSIGNIA_AWS,
     }
   }
 })

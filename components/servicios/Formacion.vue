@@ -2,10 +2,16 @@
   <v-app class="container">
     <section class="section1">
       <h1 style="margin-top: 2%">Formación</h1>
-      <v-card href="https://www.iudigital.edu.co/" target="_blank" append-icon="mdi-open-in-new" style="margin-top: 5%; background-color: black;" class="mx-auto" max-width="525">
-        
-        <v-list style="background-color:#000; color:aliceblue;" lines="two">
-          <v-list-subheader style="color:aliceblue">Estudios</v-list-subheader>
+      <v-card
+        href="https://www.iudigital.edu.co/"
+        target="_blank"
+        append-icon="mdi-open-in-new"
+        style="margin-top: 5%; background-color: black"
+        class="mx-auto"
+        max-width="525"
+      >
+        <v-list style="background-color: #000; color: aliceblue" lines="two">
+          <v-list-subheader style="color: aliceblue">Estudios</v-list-subheader>
 
           <v-list-item
             prepend-avatar="/iud.png"
@@ -13,17 +19,16 @@
           >
             <template v-slot:subtitle>
               <span class="font-weight-bold">Iu Digital de Antioquia</span>
-              
             </template>
           </v-list-item>
 
           <v-divider inset></v-divider>
 
-          <v-list-item
-            prepend-avatar="/iud.png"
-          >
+          <v-list-item prepend-avatar="/iud.png">
             <template v-slot:title>
-              Tecnologia en desarrollo de software<span class="text-grey-lighten-1"></span>
+              Tecnologia en desarrollo de software<span
+                class="text-grey-lighten-1"
+              ></span>
             </template>
 
             <template v-slot:subtitle>
@@ -31,9 +36,27 @@
             </template>
           </v-list-item>
 
-          <v-divider  inset></v-divider>
+          <v-divider inset></v-divider>
+          <v-card
+            v-for="icon in aws"
+            :key="icon.name"
+            :href="icon.url"
+            target="_blank"
+            style="margin-top: 5%; background-color: black; color: aliceblue"
+          >
+            <v-list-item prepend-avatar="/insigniaaws.png">
+              <template v-slot:title>
+                Insignia AWS Cloud foundations<span
+                  class="text-grey-lighten-1"
+                ></span>
+              </template>
 
-          
+              <template v-slot:subtitle>
+                <span class="font-weight-bold">AWS ACADEMY</span>
+              </template>
+            </v-list-item>
+          </v-card>
+          <v-divider inset></v-divider>
         </v-list>
       </v-card>
     </section>
@@ -47,6 +70,7 @@ import { useRuntimeConfig } from "#app";
 const CONFIG = useRuntimeConfig().public;
 const router = useRouter();
 
+const aws = ref([{ name: "aws", url: CONFIG.INSIGNIA_AWS }]);
 </script>
 
 <style scoped>
