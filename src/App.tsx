@@ -50,7 +50,7 @@ export default function Portfolio() {
     }
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/contact`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
