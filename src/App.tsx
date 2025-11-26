@@ -16,7 +16,7 @@ export default function Portfolio() {
     },
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -37,7 +37,7 @@ export default function Portfolio() {
     });
   };
 
-  const handldeSubmit = async (e) => {
+  const handldeSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (
@@ -50,7 +50,7 @@ export default function Portfolio() {
     }
 
     try {
-      const response = await fetch("http://localhost:3000/contact", {
+      const response = await fetch(import.meta.env.VITE_BACKEND_URL_LOCAL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -537,7 +537,7 @@ export default function Portfolio() {
   );
 }
 
-function Skill({ name, icon }) {
+function Skill({ name, icon }: { name: string; icon?: string }) {
   return (
     <div className="p-4 border rounded-lg relative">
       <div className="flex items-center justify-between">
