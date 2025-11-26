@@ -3,6 +3,7 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  console.log('MAIL_USER:', process.env.MAIL_USER);
 
   app.enableCors({
     origin: '*',
