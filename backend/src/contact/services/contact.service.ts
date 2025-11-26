@@ -2,24 +2,18 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 
-import { Injectable } from '@nestjs/common';
+import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import nodemailer, { Transporter } from 'nodemailer';
+import { Resend } from 'resend';
 
 @Injectable()
 export class ContactService {
-  private readonly transporter: Transporter;
+  private readonly resend: Resend;
 
   constructor(private readonly configService: ConfigService) {
-    this.transporter = nodemailer.createTransport({
-      host: this.configService.get<string>('MAIL_HOST'),
-      port: Number(this.configService.get('MAIL_PORT')),
-      secure: true,
-      auth: {
-        user: this.configService.get<string>('MAIL_USER'),
-        pass: this.configService.get<string>('MAIL_PASS'),
-      },
-    }) as Transporter;
+    const apiKey = this.configService.get<string>('RESEND_API_KEY');
+    if (!apiKey) throw new Error('RESEND_API_KEY no está configurada');
+    this.resend = new Resend(apiKey);
   }
 
   async sendContactEmail(
@@ -27,18 +21,29 @@ export class ContactService {
     email: string,
     message: string,
   ): Promise<void> {
-    await this.transporter.sendMail({
-      from: `"Contacto" <${this.configService.get<string>('MAIL_USER')}>`,
-      to: this.configService.get<string>('MAIL_USER'),
-      subject: 'Nuevo mensaje',
-      html: `
-    <h2>Nuevo mensaje desde el formulario de contacto</h2>
+    try {
+      const from = this.configService.get<string>('MAIL_FROM');
+      const to = this.configService.get<string>('MAIL_TO');
 
-    <p><strong>Nombre:</strong> ${name} 
-    <p><strong>Email:</strong> ${email}</p
-    <p><strong>Mensaje:</strong></p>
-    <p>${message}</p>
-  `,
-    });
+      if (!from || !to) {
+        throw new Error('MAIL_FROM o MAIL_TO no están configurados');
+      }
+
+      await this.resend.emails.send({
+        from,
+        to,
+        subject: 'Nuevo mensaje desde tu portafolio',
+        html: `
+          <h2>Nuevo mensaje desde el formulario de contacto</h2>
+          <p><strong>Nombre:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Mensaje:</strong></p>
+          <p>${message}</p>
+        `,
+      });
+    } catch (error) {
+      console.error('Error enviando email con Resend:', error);
+      throw new InternalServerErrorException('No se pudo enviar el correo');
+    }
   }
 }
