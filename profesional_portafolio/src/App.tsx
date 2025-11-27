@@ -7,7 +7,7 @@ import "./App.css";
 
 export default function Portfolio() {
   // Formulario de contacto
-
+  const [menuOpen, setMenuOpen] = useState(false);
   const [formData, setFormData] = useState({
     payload: {
       name: "",
@@ -110,62 +110,79 @@ export default function Portfolio() {
       <div className="min-h-screen bg-gray-50 text-gray-900 antialiased">
         {/* HEADER */}
         <header className="w-full px-6 md:px-10 py-4 fixed top-0 left-0 bg-white/90 backdrop-blur-sm shadow-sm z-40">
-          <div className="max-w-6xl mx-auto flex items-center justify-between ">
-            <a href="#" className="flex items-center gap-3">
-              <div className="w-15 h-15 rounded-full bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center text-white font-bold">
-                <img className="rounded-full" src="/logo.png"></img>
-              </div>
-              <div className="hidden md:block">
-                <p className="text-sm font-semibold">ANDRES ROJO</p>
-                <p className="text-xs text-gray-500">
-                  Ingeniero de Software & Datos
-                </p>
-              </div>
-            </a>
+      <div className="mx-auto flex items-center justify-between">
 
-            <nav className="flex items-center gap-6 text-sm font-medium">
-              <a href="#presentacion" className="hover:text-green-600">
-                Presentación
-              </a>
-              <a href="#formacion" className="hover:text-green-600">
-                Formación
-              </a>
-              <a href="#proyectos" className="hover:text-green-600">
-                Proyectos
-              </a>
-              <a href="#contacto" className="hover:text-green-600">
-                Contacto
-              </a>
-            </nav>
-            
-
-            {/* <div className="flex items-center gap-3">
-              <a
-                href="#contacto"
-                className="inline-block bg-green-500 hover:bg-green-600 text-white px-5 py-2 rounded-md font-semibold transition"
-              >
-                Aplicar
-              </a>
-
-              <button className="md:hidden p-2 rounded-lg hover:bg-gray-100">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-              </button>
-            </div> */}
+        {/* LOGO */}
+        <a href="#" className="flex items-center gap-3">
+          <div className="w-15 h-15 rounded-full bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center text-white font-bold">
+            <img className="rounded-full" src="/logo.png" />
           </div>
-        </header>
+
+          <div className="hidden md:block">
+            <p className="text-sm font-semibold">ANDRES ROJO</p>
+            <p className="text-xs text-gray-500">Ingeniero de Software & Datos</p>
+          </div>
+        </a>
+
+        {/* NAV — ESCRITORIO */}
+        <nav className="hidden md:flex gap-6 text-sm font-medium">
+          <a href="#presentacion" className="hover:text-green-600">Presentación</a>
+          <a href="#formacion" className="hover:text-green-600">Formación</a>
+          <a href="#proyectos" className="hover:text-green-600">Proyectos</a>
+          <a href="#contacto" className="hover:text-green-600">Contacto</a>
+        </nav>
+
+        {/* BOTÓN HAMBURGUESA — MOBILE */}
+        <button
+          className="md:hidden p-2 rounded-lg hover:bg-gray-100"
+          onClick={() => setMenuOpen(true)}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+              d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+      {/* SIDEBAR MOBILE */}
+      <div
+        className={`fixed top-0 right-0 h- w-64 bg-white shadow-lg z-50 transform transition-transform duration-300 ${
+          menuOpen ? "translate-x-2" : "translate-x-full"
+        }`}
+      >
+        
+          <div>
+          <button
+            onClick={() => setMenuOpen(false)}
+            className="p-2 rounded-lg hover:bg-gray-100"
+          >
+            ✕
+          </button>
+          </div>
+        
+
+        <nav className="flex flex-col p-4 text-sm gap-4">
+          <a href="#presentacion" onClick={() => setMenuOpen(false)} className="hover:text-green-600">Presentación</a>
+          <a href="#formacion" onClick={() => setMenuOpen(false)} className="hover:text-green-600">Formación</a>
+          <a href="#proyectos" onClick={() => setMenuOpen(false)} className="hover:text-green-600">Proyectos</a>
+          <a href="#contacto" onClick={() => setMenuOpen(false)} className="hover:text-green-600">Contacto</a>
+        </nav>
+      </div>
+
+      {/* OVERLAY — PARA CERRAR EL MENÚ */}
+      {menuOpen && (
+        <div
+          className="fixed inset-0 bg-black/40 z-40 md:hidden"
+          onClick={() => setMenuOpen(false)}
+        ></div>
+      )}
+    </header>
 
         <main className="pt-28">
           {/* HERO / PRESENTACION */}
