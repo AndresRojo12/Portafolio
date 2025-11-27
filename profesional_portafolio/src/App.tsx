@@ -16,7 +16,9 @@ export default function Portfolio() {
     },
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -108,7 +110,7 @@ export default function Portfolio() {
       <div className="min-h-screen bg-gray-50 text-gray-900 antialiased">
         {/* HEADER */}
         <header className="w-full px-6 md:px-10 py-4 fixed top-0 left-0 bg-white/90 backdrop-blur-sm shadow-sm z-40">
-          <div className="max-w-6xl mx-auto flex items-center justify-between">
+          <div className="max-w-6xl mx-auto flex items-center justify-between ">
             <a href="#" className="flex items-center gap-3">
               <div className="w-15 h-15 rounded-full bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center text-white font-bold">
                 <img className="rounded-full" src="/logo.png"></img>
@@ -135,8 +137,9 @@ export default function Portfolio() {
                 Contacto
               </a>
             </nav>
+            
 
-            <div className="flex items-center gap-3">
+            {/* <div className="flex items-center gap-3">
               <a
                 href="#contacto"
                 className="inline-block bg-green-500 hover:bg-green-600 text-white px-5 py-2 rounded-md font-semibold transition"
@@ -160,7 +163,7 @@ export default function Portfolio() {
                   />
                 </svg>
               </button>
-            </div>
+            </div> */}
           </div>
         </header>
 
