@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, Zoom, toast } from 'react-toastify';
 //import 'react-toastify/dist/ReactToastify.css';
 
 export default function Portfolio() {
@@ -590,7 +590,8 @@ export default function Portfolio() {
         </main>
       </div>
       <ToastContainer
-      position="bottom-right"  />
+      position="bottom-right"
+      transition={Zoom}  />
     </>
   );
 }
