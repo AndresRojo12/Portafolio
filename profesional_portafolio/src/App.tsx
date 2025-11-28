@@ -222,7 +222,7 @@ export default function Portfolio() {
             className="text-teal-600 dark:bg-gray-800 absolute inset-0 flex items-center justify-center p-6"
             onClick={(e) => e.stopPropagation()}
           >
-            <nav className="flex flex-col items-center gap-10 text-3xl font-semibold text-gray">
+            <nav className="text-lg flex flex-col items-center gap-10 text-3xl font-semibold text-gray">
               <a href="#presentacion" onClick={closeMenu}>
                 Presentación
               </a>
