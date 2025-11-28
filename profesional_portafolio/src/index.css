@@ -9,6 +9,28 @@
   animation: menu-fade 0.28s ease-out;
 }
 
+@keyframes slideIn {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes slideOut {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+
+/* entrada */
+.animate-slide-in {
+  animation: slideIn 0.5s ease-out forwards;
+}
+
+/* salida */
+.animate-slide-out {
+  animation: slideOut 0.5s ease-in forwards;
+}
+
+
+
 /* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

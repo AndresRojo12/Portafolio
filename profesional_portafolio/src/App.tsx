@@ -13,6 +13,17 @@ export default function Portfolio() {
 
   // Estado del menú móvil (full-screen)
   const [openMenu, setOpenMenu] = useState(false);
+   const [closing, setClosing] = useState(false);
+
+   const closeMenu = () => {
+    setClosing(true);
+
+    setTimeout(() => {
+      setOpenMenu(false);
+      setClosing(false);
+    }, 500); // Debe coincidir con la duración de la animación
+  };
+
 
   // Bloquear scroll del body cuando el menú esté abierto
   useEffect(() => {
@@ -121,7 +132,6 @@ export default function Portfolio() {
       <div className="min-h-screen bg-gray-50 text-gray-900 antialiased">
         {/* HEADER */}
         <header className="dark:bg-gray-800 w-full px-6 md:px-10 py-4 fixed top-0 left-0 bg-white/90 backdrop-blur-sm shadow-sm z-[999]">
-
           <div className="max-w-6xl mx-auto flex items-center justify-between">
             <a href="/" className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-full bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center text-white font-bold overflow-hidden">
@@ -155,92 +165,80 @@ export default function Portfolio() {
               </a>
             </nav>
 
-            {/* Botón hamburguesa (mobile) */}
-            <div className="flex items-center gap-3">
-              <button
-                className="md:hidden p-2 rounded-lg hover:bg-gray-100"
-                onClick={() => setOpenMenu(true)}
-                aria-label="Abrir menú"
+             {/* BOTÓN HAMBURGUESA / X */}
+          <button
+            className="md:hidden p-2 rounded-lg hover:bg-gray-100"
+            onClick={() => (openMenu ? closeMenu() : setOpenMenu(true))}
+            aria-label="Toggle menu"
+          >
+            {openMenu && !closing ? (
+              // Ícono X
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="gray"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-              </button>
-            </div>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            ) : (
+              // Ícono hamburguesa
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="gray"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            )}
+          </button>
+        </div>
+      </header>
+
+      {/* MENÚ FULL-SCREEN MOBILE */}
+      {openMenu && (
+        <div
+          className={`fixed inset-0 bg-white z-[900] md:hidden 
+          ${closing ? "animate-slide-out" : "animate-slide-in"}`}
+        >
+          {/* Fondo clickeable */}
+          <div className="absolute inset-0" onClick={closeMenu}></div>
+
+          {/* Contenido centrado */}
+          <div
+            className="text-teal-600 dark:bg-gray-800 absolute inset-0 flex items-center justify-center p-6"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <nav className="flex flex-col items-center gap-10 text-3xl font-semibold text-gray">
+              <a href="#presentacion" onClick={closeMenu}>
+                Presentación
+              </a>
+              <a href="#formacion" onClick={closeMenu}>
+                Formación
+              </a>
+              <a href="#proyectos" onClick={closeMenu}>
+                Proyectos
+              </a>
+              <a href="#contacto" onClick={closeMenu}>
+                Contacto
+              </a>
+            </nav>
           </div>
-        </header>
-
-        {/* MENÚ FULL-SCREEN (mobile) */}
-        {openMenu && (
-          <div className="fixed inset-0 z-[900] md:hidden" aria-hidden={!openMenu}>
-            {/* Fondo semi-transparente */}
-            <div
-              className="absolute inset-0 bg-white"
-              onClick={() => setOpenMenu(false)}
-            />
-
-            {/* Contenido del menú full-screen */}
-            <div
-              className="absolute inset-0 flex items-center justify-center p-6 transition animate-menu-in"
-              // evitamos que el click en el contenido cierre el overlay
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="relative w-full h-full max-w-none">
-                {/* Botón cerrar (arriba derecha) */}
-                <button
-                  onClick={() => setOpenMenu(false)}
-                  className="absolute top-15 right-6 text-4xl text-gray z-60"
-                  aria-label="Cerrar menú"
-                >
-                  ✕
-                </button>
-
-                {/* Enlaces centrados */}
-                <nav className="h-full w-full flex flex-col items-center justify-center gap-10 text-3xl font-semibold text-gray">
-                  <a
-                    href="#presentacion"
-                    onClick={() => setOpenMenu(false)}
-                    className="hover:text-green-400"
-                  >
-                    Presentación
-                  </a>
-                  <a
-                    href="#formacion"
-                    onClick={() => setOpenMenu(false)}
-                    className="hover:text-green-400"
-                  >
-                    Formación
-                  </a>
-                  <a
-                    href="#proyectos"
-                    onClick={() => setOpenMenu(false)}
-                    className="hover:text-green-400"
-                  >
-                    Proyectos
-                  </a>
-                  <a
-                    href="#contacto"
-                    onClick={() => setOpenMenu(false)}
-                    className="hover:text-green-400"
-                  >
-                    Contacto
-                  </a>
-                </nav>
-              </div>
-            </div>
-          </div>
-        )}
+        </div>
+      )}
 
         <main className="pt-28">
           {/* HERO / PRESENTACION */}
@@ -424,7 +422,9 @@ export default function Portfolio() {
                     >
                       Ver detalles →
                     </a>
-                    <div className="text-xs text-gray-400">2024 - 2025 • Demo</div>
+                    <div className="text-xs text-gray-400">
+                      2024 - 2025 • Demo
+                    </div>
                   </div>
                 </article>
               ))}
@@ -548,7 +548,7 @@ export default function Portfolio() {
           </section>
 
           {/* FOOTER */}
-          <footer className="mt-8 py-8 border-t ">
+          <footer className="mt-8 py-8 border-t">
             <div className="max-w-6xl mx-auto px-6 md:px-10 flex flex-col md:flex-row items-center justify-between text-sm text-gray-500 gap-6">
               <div>© {new Date().getFullYear()} Andrés Rojo.</div>
 
