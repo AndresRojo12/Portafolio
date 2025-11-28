@@ -1,13 +1,8 @@
-//import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 
-// Portfolio single-file React component (TailwindCSS required)
-// Usage: drop into a React app (Vite / Create React App) with Tailwind configured.
-
 export default function Portfolio() {
-  // Formulario de contacto
-  const [menuOpen, setMenuOpen] = useState(false);
+  // Estado del formulario
   const [formData, setFormData] = useState({
     payload: {
       name: "",
@@ -15,6 +10,22 @@ export default function Portfolio() {
       message: "",
     },
   });
+
+  // Estado del menú móvil (full-screen)
+  const [openMenu, setOpenMenu] = useState(false);
+
+  // Bloquear scroll del body cuando el menú esté abierto
+  useEffect(() => {
+    if (openMenu) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    // cleanup por si el componente se desmonta
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [openMenu]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -109,80 +120,126 @@ export default function Portfolio() {
     <>
       <div className="min-h-screen bg-gray-50 text-gray-900 antialiased">
         {/* HEADER */}
-        <header className="w-full px-6 md:px-10 py-4 fixed top-0 left-0 bg-white/90 backdrop-blur-sm shadow-sm z-40">
-      <div className="mx-auto flex items-center justify-between">
+        <header className="w-full px-6 md:px-10 py-4 fixed top-0 left-0 bg-white/90 backdrop-blur-sm shadow-sm z-50">
+          <div className="max-w-6xl mx-auto flex items-center justify-between">
+            <a href="#" className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center text-white font-bold overflow-hidden">
+                <img
+                  src="/logo.png"
+                  alt="logo"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="hidden md:block">
+                <p className="text-sm font-semibold">ANDRES ROJO</p>
+                <p className="text-xs text-gray-500">
+                  Ingeniero de Software & Datos
+                </p>
+              </div>
+            </a>
 
-        {/* LOGO */}
-        <a href="#" className="flex items-center gap-3">
-          <div className="w-15 h-15 rounded-full bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center text-white font-bold">
-            <img className="rounded-full" src="/logo.png" />
+            {/* NAV escritorio */}
+            <nav className="hidden md:flex gap-6 text-sm font-medium">
+              <a href="#presentacion" className="hover:text-green-600">
+                Presentación
+              </a>
+              <a href="#formacion" className="hover:text-green-600">
+                Formación
+              </a>
+              <a href="#proyectos" className="hover:text-green-600">
+                Proyectos
+              </a>
+              <a href="#contacto" className="hover:text-green-600">
+                Contacto
+              </a>
+            </nav>
+
+            {/* Botón hamburguesa (mobile) */}
+            <div className="flex items-center gap-3">
+              <button
+                className="md:hidden p-2 rounded-lg hover:bg-gray-100"
+                onClick={() => setOpenMenu(true)}
+                aria-label="Abrir menú"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
+        </header>
 
-          <div className="hidden md:block">
-            <p className="text-sm font-semibold">ANDRES ROJO</p>
-            <p className="text-xs text-gray-500">Ingeniero de Software & Datos</p>
+        {/* MENÚ FULL-SCREEN (mobile) */}
+        {openMenu && (
+          <div className="fixed inset-0 z-50 md:hidden" aria-hidden={!openMenu}>
+            {/* Fondo semi-transparente */}
+            <div
+              className="absolute inset-0 bg-white"
+              onClick={() => setOpenMenu(false)}
+            />
+
+            {/* Contenido del menú full-screen */}
+            <div
+              className="absolute inset-0 flex items-center justify-center p-6 transition animate-menu-in"
+              // evitamos que el click en el contenido cierre el overlay
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="relative w-full h-full max-w-none">
+                {/* Botón cerrar (arriba derecha) */}
+                <button
+                  onClick={() => setOpenMenu(false)}
+                  className="absolute top-6 right-6 text-4xl text-gray z-60"
+                  aria-label="Cerrar menú"
+                >
+                  ✕
+                </button>
+
+                {/* Enlaces centrados */}
+                <nav className="h-full w-full flex flex-col items-center justify-center gap-10 text-3xl font-semibold text-gray">
+                  <a
+                    href="#presentacion"
+                    onClick={() => setOpenMenu(false)}
+                    className="hover:text-green-400"
+                  >
+                    Presentación
+                  </a>
+                  <a
+                    href="#formacion"
+                    onClick={() => setOpenMenu(false)}
+                    className="hover:text-green-400"
+                  >
+                    Formación
+                  </a>
+                  <a
+                    href="#proyectos"
+                    onClick={() => setOpenMenu(false)}
+                    className="hover:text-green-400"
+                  >
+                    Proyectos
+                  </a>
+                  <a
+                    href="#contacto"
+                    onClick={() => setOpenMenu(false)}
+                    className="hover:text-green-400"
+                  >
+                    Contacto
+                  </a>
+                </nav>
+              </div>
+            </div>
           </div>
-        </a>
-
-        {/* NAV — ESCRITORIO */}
-        <nav className="hidden md:flex gap-6 text-sm font-medium">
-          <a href="#presentacion" className="hover:text-green-600">Presentación</a>
-          <a href="#formacion" className="hover:text-green-600">Formación</a>
-          <a href="#proyectos" className="hover:text-green-600">Proyectos</a>
-          <a href="#contacto" className="hover:text-green-600">Contacto</a>
-        </nav>
-
-        {/* BOTÓN HAMBURGUESA — MOBILE */}
-        <button
-          className="md:hidden p-2 rounded-lg hover:bg-gray-100"
-          onClick={() => setMenuOpen(true)}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-              d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-      </div>
-
-      {/* SIDEBAR MOBILE */}
-      <div
-        className={`fixed top-0 right-0 h- w-64 bg-white shadow-lg z-50 transform transition-transform duration-300 ${
-          menuOpen ? "translate-x-2" : "translate-x-full"
-        }`}
-      >
-        
-          <div>
-          <button
-            onClick={() => setMenuOpen(false)}
-            className="p-2 rounded-lg hover:bg-gray-100"
-          >
-            ✕
-          </button>
-          </div>
-        
-
-        <nav className="flex flex-col p-4 text-sm gap-4">
-          <a href="#presentacion" onClick={() => setMenuOpen(false)} className="hover:text-green-600">Presentación</a>
-          <a href="#formacion" onClick={() => setMenuOpen(false)} className="hover:text-green-600">Formación</a>
-          <a href="#proyectos" onClick={() => setMenuOpen(false)} className="hover:text-green-600">Proyectos</a>
-          <a href="#contacto" onClick={() => setMenuOpen(false)} className="hover:text-green-600">Contacto</a>
-        </nav>
-      </div>
-
-      {/* OVERLAY — PARA CERRAR EL MENÚ */}
-      {menuOpen && (
-        <div
-          className="fixed inset-0 bg-black/40 z-40 md:hidden"
-          onClick={() => setMenuOpen(false)}
-        ></div>
-      )}
-    </header>
+        )}
 
         <main className="pt-28">
           {/* HERO / PRESENTACION */}
@@ -495,30 +552,6 @@ export default function Portfolio() {
               <div>© {new Date().getFullYear()} Andrés Rojo.</div>
 
               <div className="flex items-center gap-5 text-gray-600">
-                {/* Instagram */}
-                {/* <a href="#" className="hover:text-green-600">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="w-6 h-6"
-                  >
-                    <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-.75a1.25 1.25 0 11-2.5 0 1.25 1.25 0 012.5 0z" />
-                  </svg>
-                </a>
-
-                {/* Facebook */}
-                {/* <a href="#" className="hover:text-green-600">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                    className="w-6 h-6"
-                  >
-                    <path d="M22 12C22 6.477 17.523 2 12 2S2 6.477 2 12c0 5.006 3.657 9.128 8.438 9.878v-6.992H7.898v-2.886h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562v1.874h2.773l-.443 2.886h-2.33V21.88C18.343 21.128 22 17.006 22 12z" />
-                  </svg>
-                </a> */}
-
                 {/* GitHub */}
                 <a
                   href={import.meta.env.VITE_GITHUB}
