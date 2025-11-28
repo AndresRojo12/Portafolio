@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import { ToastContainer, toast } from 'react-toastify';
+//import 'react-toastify/dist/ReactToastify.css';
 
 export default function Portfolio() {
   // Estado del formulario
@@ -69,7 +71,7 @@ export default function Portfolio() {
       !formData.payload.email ||
       !formData.payload.message
     ) {
-      alert("Por favor complete todos los campos del formulario");
+      toast.error("Por favor complete todos los campos del formulario");
       return;
     }
 
@@ -83,7 +85,7 @@ export default function Portfolio() {
       });
 
       if (response.ok) {
-        alert("Mensaje enviado correctamente");
+        toast.success("Mensaje enviado correctamente");
         setFormData({
           payload: {
             name: "",
@@ -92,11 +94,11 @@ export default function Portfolio() {
           },
         });
       } else {
-        alert("Error al enviar el mensaje");
+        toast.error("Error al enviar el mensaje");
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("Error al enviar el mensaje");
+      toast.error("Error al enviar el mensaje");
     }
   };
 
@@ -587,6 +589,8 @@ export default function Portfolio() {
           </footer>
         </main>
       </div>
+      <ToastContainer
+      position="bottom-right"  />
     </>
   );
 }
