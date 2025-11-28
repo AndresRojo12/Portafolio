@@ -120,7 +120,8 @@ export default function Portfolio() {
     <>
       <div className="min-h-screen bg-gray-50 text-gray-900 antialiased">
         {/* HEADER */}
-        <header className="w-full px-6 md:px-10 py-4 fixed top-0 left-0 bg-white/90 backdrop-blur-sm shadow-sm z-50">
+        <header className="w-full px-6 md:px-10 py-4 fixed top-0 left-0 bg-white/90 backdrop-blur-sm shadow-sm z-[999]">
+
           <div className="max-w-6xl mx-auto flex items-center justify-between">
             <a href="#" className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-full bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center text-white font-bold overflow-hidden">
@@ -182,7 +183,7 @@ export default function Portfolio() {
 
         {/* MENÚ FULL-SCREEN (mobile) */}
         {openMenu && (
-          <div className="fixed inset-0 z-50 md:hidden" aria-hidden={!openMenu}>
+          <div className="fixed inset-0 z-[900] md:hidden" aria-hidden={!openMenu}>
             {/* Fondo semi-transparente */}
             <div
               className="absolute inset-0 bg-white"
@@ -199,7 +200,7 @@ export default function Portfolio() {
                 {/* Botón cerrar (arriba derecha) */}
                 <button
                   onClick={() => setOpenMenu(false)}
-                  className="absolute top-6 right-6 text-4xl text-gray z-60"
+                  className="absolute top-15 right-6 text-4xl text-gray z-60"
                   aria-label="Cerrar menú"
                 >
                   ✕
