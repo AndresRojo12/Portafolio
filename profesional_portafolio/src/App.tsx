@@ -219,7 +219,7 @@ export default function Portfolio() {
 
           {/* Contenido centrado */}
           <div
-            className="text-teal-600 dark:bg-gray-800 absolute inset-0 flex items-center justify-center p-6"
+            className="text-gray-500 dark:bg-gray-800 absolute inset-0 flex items-center justify-center p-6"
             onClick={(e) => e.stopPropagation()}
           >
             <nav className="text-lg flex flex-col items-center gap-10 text-3xl font-semibold text-gray">
